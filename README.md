@@ -15,8 +15,10 @@ Each folder contains:
 
 The goal isn't to memorize solutions. It's to **recognize patterns from first principles** and build solutions systematically.
 
-### 🌟 Bonus: Blind 75 & NeetCode 150
-We have intricately mapped the famous **Blind 75** and **NeetCode 150** problem lists into these 15 patterns, complete with frequent company tags (Meta, Amazon, Google, etc.). Check out the [🎯 NeetCode 150 & Blind 75 Pattern Mapping](./NEETCODE_BLIND75_MAPPING.md) to prioritize your practice!
+### 🌟 Bonus: Practice Lists
+We have intricately mapped the famous **Blind 75** and **NeetCode 150** problem lists into these 15 patterns, complete with frequent company tags (Meta, Amazon, Google, etc.). Check out the mappings to prioritize your practice:
+- [🎯 NeetCode 150 Pattern Mapping](./practice/neetcode150.md)
+- [🎯 Blind 75 Pattern Mapping](./practice/blind75.md)
 
 ---
 
