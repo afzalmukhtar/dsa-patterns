@@ -1007,57 +1007,57 @@ def max_profit(prices):
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 1 | Two Sum II - Input Array Is Sorted | Easy |
-| 2 | 3Sum | Medium |
-| 3 | 3Sum Closest | Medium |
-| 4 | 4Sum | Medium |
+| 1 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Easy |
+| 2 | [3Sum](https://leetcode.com/problems/3sum/) | Medium |
+| 3 | [3Sum Closest](https://leetcode.com/problems/3sum-closest/) | Medium |
+| 4 | [4Sum](https://leetcode.com/problems/4sum/) | Medium |
 
 ### Group 2: Opposite Ends — String / Palindrome
 *Builds on the same "squeeze inward" logic but on strings.*
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 5 | Valid Palindrome | Easy |
-| 6 | Valid Palindrome II | Easy |
-| 7 | Reverse String | Easy |
-| 8 | Reverse Vowels of a String | Easy |
+| 5 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy |
+| 6 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | Easy |
+| 7 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy |
+| 8 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy |
 
 ### Group 3: Same Direction — Partition / In-Place
 *Slow writer, fast scanner. The "move zeros" family.*
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 9 | Move Zeroes | Easy |
-| 10 | Remove Duplicates from Sorted Array | Easy |
-| 11 | Remove Element | Easy |
-| 12 | Remove Duplicates from Sorted Array II | Medium |
-| 13 | Sort Colors | Medium |
+| 9 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | Easy |
+| 10 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | Easy |
+| 11 | [Remove Element](https://leetcode.com/problems/remove-element/) | Easy |
+| 12 | [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | Medium |
+| 13 | [Sort Colors](https://leetcode.com/problems/sort-colors/) | Medium |
 
 ### Group 4: Opposite Ends — Maximize/Minimize
 *Container water family. Greedy pointer movement.*
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 14 | Container With Most Water | Medium |
-| 15 | Trapping Rain Water | Hard |
+| 14 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Medium |
+| 15 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | Hard |
 
 ### Group 5: Slow & Fast Pointers — Linked List
 *Cycle detection, middle finding, K-gap trick.*
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 16 | Linked List Cycle | Easy |
-| 17 | Middle of the Linked List | Easy |
-| 18 | Remove Nth Node From End of List | Medium |
-| 19 | Linked List Cycle II | Medium |
-| 20 | Find the Duplicate Number | Medium |
+| 16 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy |
+| 17 | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) | Easy |
+| 18 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | Medium |
+| 19 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium |
+| 20 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium |
 
 ### Group 6: Greedy Scan — Stock / Running Min-Max
 *Not classic two pointers — but the "scan + track" cousin.*
 
 | # | Problem | Difficulty |
 |---|---------|------------|
-| 21 | Best Time to Buy and Sell Stock | Easy |
+| 21 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | Easy |
 
 ### Suggested Practice Timeline
 - **Week 1 — Build the foundation**
