@@ -1,17 +1,17 @@
-# 🧠 DSA Patterns — My Personal Learning Journal
+# 🧠 DSA Patterns — A Structured Learning Guide
 
 > A structured, pattern-first approach to mastering Data Structures & Algorithms.
-> Every note, problem, and solution in this repo was learned and written by me — built up one pattern at a time.
+> This repository is designed to help you build intuition and solve problems systematically, one pattern at a time.
 
 ---
 
 ## 📖 What Is This?
 
-This repository is my personal DSA learning journal. Instead of grinding random LeetCode problems, I'm learning **how to think** by studying **recurring patterns** that show up across hundreds of problems.
+This repository is a comprehensive guide to learning Data Structures and Algorithms. Instead of grinding random LeetCode problems, this guide focuses on teaching you **how to think** by studying **recurring patterns** that show up across hundreds of problems.
 
 Each folder contains:
-- **A deep-dive README** — the intuition, mental model, brute force → optimal progression, templates, and edge cases for that pattern
-- **Problem files** — the problem statement + my solution for each problem I've solved under that pattern
+- **A deep-dive README** — the intuition, mental model, brute force → optimal progression, templates, and edge cases for that pattern.
+- **Problem files** — curated problem statements and clear, well-commented solutions demonstrating the pattern in action.
 
 The goal isn't to memorize solutions. It's to **recognize patterns from first principles** and build solutions systematically.
 
@@ -40,18 +40,18 @@ The goal isn't to memorize solutions. It's to **recognize patterns from first pr
 
 ---
 
-## 🔁 My Learning Workflow
+## 🔁 Recommended Learning Workflow
 
 ```
-1. Learn the pattern (README in each folder)
+1. Learn the pattern (Read the README in each folder)
        ↓
-2. Recognize the signals in a problem statement
+2. Learn to recognize the signals in a problem statement
        ↓
-3. Think through brute force → optimal
+3. Think through the progression: brute force → optimal
        ↓
-4. Code the solution
+4. Attempt to code the solution yourself
        ↓
-5. Push to this repo
+5. Compare with the provided solutions
 ```
 
 ---
@@ -65,7 +65,7 @@ dsa-patterns/
 │   ├── README.md                      ← Full pattern notes
 │   └── problems/
 │       ├── 001-two-sum-sorted.md      ← Problem statement
-│       └── 001-two-sum-sorted.py      ← My solution
+│       └── 001-two-sum-sorted.py      ← Example solution
 ├── 02-sliding-window/
 │   ├── README.md
 │   └── problems/
@@ -77,27 +77,27 @@ dsa-patterns/
 
 ## 🧭 How to Use This Repo
 
-- **Learning a new pattern?** → Open the folder's `README.md`
-- **Looking at a specific problem?** → Go to `problems/` inside the relevant pattern folder
-- **Each `.md` problem file** contains: problem statement, constraints, examples, and my thought process
-- **Each `.py` (or `.js`) file** contains: my solution with comments explaining the pattern application
+- **Learning a new pattern?** → Open the folder's `README.md`.
+- **Looking at a specific problem?** → Go to `problems/` inside the relevant pattern folder.
+- **Each `.md` problem file** contains: the problem statement, constraints, examples, and the thought process.
+- **Each `.py` (or `.js`, `.java`, etc.) file** contains: a solution with comments explaining the application of the pattern.
 
 ---
 
 ## 🛠️ Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dsa-patterns.git
+git clone https://github.com/afzalmukhtar/dsa-patterns.git
 cd dsa-patterns
 ```
 
-No dependencies. Pure thinking. 🧠
+No external dependencies. Just pure problem-solving. 🧠
 
 ---
 
 ## 📈 Progress Tracker
 
-| Pattern | Status | Problems Solved |
+| Pattern | Status | Problems Available |
 |---------|--------|----------------|
 | Two Pointers | 🔄 In Progress | 0 |
 | Sliding Window | ⏳ Not Started | 0 |
@@ -118,4 +118,4 @@ No dependencies. Pure thinking. 🧠
 
 ---
 
-*Built with curiosity, not shortcuts. 🚀*
+*Built with curiosity, designed for mastery. 🚀*

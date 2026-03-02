@@ -10,7 +10,7 @@
 
 Topics to cover:
 - [ ] What is it?
-- [ ] When do I use it? (signals)
+- [ ] When to use it? (signals)
 - [ ] Mental model / analogy
 - [ ] Brute force approach
 - [ ] Optimization insight
@@ -29,4 +29,4 @@ Topics to cover:
 
 ---
 
-*Notes and problems will be added here as I learn this pattern.*
+*Notes and problems will be added here over time.*
