@@ -1,4 +1,4 @@
-# 12 — Intervals
+# 12 — Heap / Priority Queue
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

@@ -1,4 +1,4 @@
-# 10 — Dynamic Programming
+# 08 — DFS / Backtracking
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

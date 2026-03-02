@@ -1,4 +1,4 @@
-# 16 — Bit Manipulation
+# 13 — Graph Patterns
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

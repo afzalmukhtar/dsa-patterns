@@ -1,4 +1,4 @@
-# 03 — Fast & Slow Pointers
+# 14 — Trie
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

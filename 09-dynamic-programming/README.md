@@ -1,4 +1,4 @@
-# 11 — Greedy
+# 09 — Dynamic Programming
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

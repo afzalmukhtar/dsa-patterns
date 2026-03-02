@@ -1,4 +1,4 @@
-# 15 — Trie
+# 11 — Intervals
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

@@ -1,4 +1,4 @@
-# 09 — DFS / Backtracking
+# 06 — Monotonic Stack
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

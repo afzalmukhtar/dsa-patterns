@@ -1,4 +1,4 @@
-# 07 — Monotonic Stack
+# 15 — Bit Manipulation
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

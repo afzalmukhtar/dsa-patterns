@@ -1,4 +1,4 @@
-# 05 — Prefix Sum
+# 04 — Prefix Sum
 
 > **Status:** 🔄 In Progress | **Problems Solved:** 0
 

@@ -1,4 +1,4 @@
-# 04 — Binary Search
+# 03 — Binary Search
 
 > **Status:** 🔄 In Progress | **Problems Solved:** 0
 

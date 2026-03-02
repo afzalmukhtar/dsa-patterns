@@ -1,4 +1,4 @@
-# 14 — Graph Patterns
+# 10 — Greedy
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

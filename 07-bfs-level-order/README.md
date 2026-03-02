@@ -1,4 +1,4 @@
-# 08 — BFS / Level Order Traversal
+# 07 — BFS / Level Order Traversal
 
 > **Status:** ⏳ Not Started | **Problems Solved:** 0
 

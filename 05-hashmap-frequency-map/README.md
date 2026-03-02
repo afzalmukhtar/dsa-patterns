@@ -1,4 +1,4 @@
-# 06 — HashMap / Frequency Map
+# 05 — HashMap / Frequency Map
 
 > **Status:** 🔄 In Progress | **Problems Solved:** 0
 

@@ -23,20 +23,19 @@ The goal isn't to memorize solutions. It's to **recognize patterns from first pr
 |---|---------|-----------|-------------------|
 | 01 | [Two Pointers](./01-two-pointers/README.md) | Two indices moving toward/away from each other | O(n) time, O(1) space |
 | 02 | [Sliding Window](./02-sliding-window/README.md) | A moving subarray/substring of variable or fixed size | O(n) time, O(k) space |
-| 03 | [Fast & Slow Pointers](./03-fast-slow-pointers/README.md) | Two pointers at different speeds to detect cycles | O(n) time, O(1) space |
-| 04 | [Binary Search](./04-binary-search/README.md) | Eliminate half the search space each step | O(log n) time |
-| 05 | [Prefix Sum](./05-prefix-sum/README.md) | Precompute cumulative sums for range queries | O(1) query, O(n) build |
-| 06 | [HashMap / Frequency Map](./06-hashmap-frequency-map/README.md) | Trade space for O(1) lookups | O(n) time, O(n) space |
-| 07 | [Monotonic Stack](./07-monotonic-stack/README.md) | Maintain a stack that's always sorted | O(n) time, O(n) space |
-| 08 | [BFS / Level Order](./08-bfs-level-order/README.md) | Explore layer by layer using a queue | O(V+E) time |
-| 09 | [DFS / Backtracking](./09-dfs-backtracking/README.md) | Explore all paths, prune dead ends | O(2^n) worst case |
-| 10 | [Dynamic Programming](./10-dynamic-programming/README.md) | Break into subproblems, cache results | Varies |
-| 11 | [Greedy](./11-greedy/README.md) | Always pick the locally optimal choice | Usually O(n log n) |
-| 12 | [Intervals](./12-intervals/README.md) | Sort + sweep for overlapping ranges | O(n log n) time |
-| 13 | [Heap / Priority Queue](./13-heap-priority-queue/README.md) | Always have access to min/max efficiently | O(log n) per op |
-| 14 | [Graph Patterns](./14-graph-patterns/README.md) | Union Find, Topo Sort, Dijkstra | O(E log V) |
-| 15 | [Trie](./15-trie/README.md) | Prefix tree for string search | O(m) per operation |
-| 16 | [Bit Manipulation](./16-bit-manipulation/README.md) | Use binary representation for fast ops | O(1) or O(n) |
+| 03 | [Binary Search](./03-binary-search/README.md) | Eliminate half the search space each step | O(log n) time |
+| 04 | [Prefix Sum](./04-prefix-sum/README.md) | Precompute cumulative sums for range queries | O(1) query, O(n) build |
+| 05 | [HashMap / Frequency Map](./05-hashmap-frequency-map/README.md) | Trade space for O(1) lookups | O(n) time, O(n) space |
+| 06 | [Monotonic Stack](./06-monotonic-stack/README.md) | Maintain a stack that's always sorted | O(n) time, O(n) space |
+| 07 | [BFS / Level Order](./07-bfs-level-order/README.md) | Explore layer by layer using a queue | O(V+E) time |
+| 08 | [DFS / Backtracking](./08-dfs-backtracking/README.md) | Explore all paths, prune dead ends | O(2^n) worst case |
+| 09 | [Dynamic Programming](./09-dynamic-programming/README.md) | Break into subproblems, cache results | Varies |
+| 10 | [Greedy](./10-greedy/README.md) | Always pick the locally optimal choice | Usually O(n log n) |
+| 11 | [Intervals](./11-intervals/README.md) | Sort + sweep for overlapping ranges | O(n log n) time |
+| 12 | [Heap / Priority Queue](./12-heap-priority-queue/README.md) | Always have access to min/max efficiently | O(log n) per op |
+| 13 | [Graph Patterns](./13-graph-patterns/README.md) | Union Find, Topo Sort, Dijkstra | O(E log V) |
+| 14 | [Trie](./14-trie/README.md) | Prefix tree for string search | O(m) per operation |
+| 15 | [Bit Manipulation](./15-bit-manipulation/README.md) | Use binary representation for fast ops | O(1) or O(n) |
 
 ---
 
@@ -71,7 +70,7 @@ dsa-patterns/
 │   └── problems/
 │       ├── 643-maximum-average-subarray-i.md
 │       └── 643-maximum-average-subarray-i.py
-└── ... (same structure for all 16 patterns)
+└── ... (same structure for all 15 patterns)
 ```
 
 ---
@@ -102,7 +101,6 @@ No external dependencies. Just pure problem-solving. 🧠
 |---------|--------|----------------|
 | Two Pointers | 🔄 In Progress | 0 |
 | Sliding Window | 🔄 In Progress | 1 |
-| Fast & Slow Pointers | ⏳ Not Started | 0 |
 | Binary Search | ⏳ Not Started | 0 |
 | Prefix Sum | ⏳ Not Started | 0 |
 | HashMap / Frequency Map | ⏳ Not Started | 0 |
