@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# JavaScript / Node
+node_modules/
+npm-debug.log
+
+# Java
+*.class
+*.jar
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
