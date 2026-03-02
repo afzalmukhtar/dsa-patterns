@@ -1,15 +1,15 @@
 # 02 — Sliding Window
 
-> **Status:** ⏳ Not Started | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
 ## 📌 Pattern Notes
 
-*This section will be filled in as we study this pattern together.*
+The Sliding Window pattern is used to perform a required operation on a specific window size of a given array or linked list, such as finding the longest subarray containing all 1s.
 
 Topics to cover:
-- [ ] What is it?
+- [x] What is it?
 - [ ] When to use it? (signals)
 - [ ] Mental model / analogy
 - [ ] Brute force approach
@@ -25,7 +25,7 @@ Topics to cover:
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| — | *None yet* | — | — |
+| 643 | [Maximum Average Subarray I](./problems/643-maximum-average-subarray-i.md) | Easy | Fixed-size window, basic sum update. |
 
 ---
 

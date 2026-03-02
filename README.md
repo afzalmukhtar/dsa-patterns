@@ -69,7 +69,8 @@ dsa-patterns/
 ├── 02-sliding-window/
 │   ├── README.md
 │   └── problems/
-│       └── ...
+│       ├── 643-maximum-average-subarray-i.md
+│       └── 643-maximum-average-subarray-i.py
 └── ... (same structure for all 16 patterns)
 ```
 
@@ -100,7 +101,7 @@ No external dependencies. Just pure problem-solving. 🧠
 | Pattern | Status | Problems Available |
 |---------|--------|----------------|
 | Two Pointers | 🔄 In Progress | 0 |
-| Sliding Window | ⏳ Not Started | 0 |
+| Sliding Window | 🔄 In Progress | 1 |
 | Fast & Slow Pointers | ⏳ Not Started | 0 |
 | Binary Search | ⏳ Not Started | 0 |
 | Prefix Sum | ⏳ Not Started | 0 |
