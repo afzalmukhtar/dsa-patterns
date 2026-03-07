@@ -1,6 +1,6 @@
 # 01 — Two Pointers
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
