@@ -104,7 +104,7 @@ No external dependencies. Just pure problem-solving. 🧠
 
 | Pattern | Status | Problems Available |
 |---------|--------|----------------|
-| Two Pointers | 🔄 In Progress | 2 |
+| Two Pointers | 🔄 In Progress | 3 |
 | Sliding Window | 🔄 In Progress | 1 |
 | Binary Search | ⏳ Not Started | 0 |
 | Prefix Sum | ⏳ Not Started | 0 |
