@@ -12,46 +12,36 @@ class Solution:
         Time Complexity: O(m + n)
         Space Complexity: O(k) - At most 52 unique characters.
         """
-        if not t or not s:
-            return ""
+        from collections import Counter
 
-        # Frequency map for string t
-        count_t = Counter(t)
-        # Number of unique characters in t that need to be satisfied
-        need = len(count_t)
-        # Number of unique characters currently satisfied in window
+        t = Counter(t)
+        window = Counter()
+        
+        need = len(t)
         have = 0
         
-        window = Counter()
         min_size = float("inf")
-        # Store indices of the best window to avoid O(m) slicing inside loop
-        res = [-1, -1]
-        
+        min_string = ""
         L = 0
+
         for R in range(len(s)):
-            char = s[R]
-            window[char] += 1
-            
-            # If the current character is in t and hits the exact requirement
-            if char in count_t and window[char] == count_t[char]:
+            window[s[R]] += 1
+
+            if s[R] in t and window[s[R]] == t[s[R]]:
                 have += 1
             
-            # While window is valid, try to shrink it
-            while have == need:
-                # Update our result if current window is smaller
+            while need == have:
                 if (R - L + 1) < min_size:
                     min_size = R - L + 1
-                    res = [L, R]
-                
-                # Pop from the left
-                left_char = s[L]
-                window[left_char] -= 1
-                
-                # If we remove a required character and it falls below count_t
-                if left_char in count_t and window[left_char] < count_t[left_char]:
+                    min_string = s[L: R + 1]
+
+                window[s[L]] -= 1
+
+                if s[L] in t and window[s[L]] < t[s[L]]:
                     have -= 1
+
+                if window[s[L]] == 0:
+                    del window[s[L]]
                 
                 L += 1
-                
-        L, R = res
-        return s[L : R + 1] if min_size != float("inf") else ""
+        return min_string
