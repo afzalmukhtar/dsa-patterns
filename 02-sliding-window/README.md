@@ -1,6 +1,6 @@
 # 02 — Sliding Window
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 5
+> **Status:** 🔄 In Progress | **Problems Solved:** 6
 
 ---
 
