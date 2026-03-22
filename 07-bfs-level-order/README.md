@@ -1,6 +1,6 @@
 # 07 — BFS / Level Order Traversal
 
-> **Status:** ⏳ Not Started | **Problems Solved:** 0
+> **Status:** 🏗️ In Progress | **Problems Solved:** 1
 
 ---
 
@@ -25,7 +25,7 @@ Topics to cover:
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| — | *None yet* | — | — |
+| 102 | [Binary Tree Level Order Traversal](problems/102-binary-tree-level-order-traversal.md) | Medium | Standard BFS using a queue |
 
 ---
 

@@ -1,6 +1,6 @@
 # 05 — HashMap / Frequency Map
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 6
 
 ---
 
@@ -205,22 +205,23 @@ def group_anagrams(words):
 | # | Problem | Concept Taught |
 |---|---------|----------------|
 | 1 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | "Have I seen this before?" — HashSet template |
-| 2 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | Frequency map comparison, `Counter(s) == Counter(t)` |
-| 3 | [Two Sum](https://leetcode.com/problems/two-sum/) | Complement lookup — the core HashMap insight |
+| 2 | [Valid Anagram](./problems/242-valid-anagram.md) | Frequency map comparison, `Counter(s) == Counter(t)` |
+| 3 | [Two Sum](./problems/1-two-sum.md) | Complement lookup — the core HashMap insight |
+| 4 | [Single Number](./problems/136-single-number.md) | Frequency counting (though XOR is the optimal space solution) |
 
 ### 🟡 Medium — Build On Top
 
 | # | Problem | Concept Taught |
 |---|---------|----------------|
-| 4 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Using `sorted(word)` as a HashMap key to bucket families |
-| 5 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | Frequency map + tracking max frequency |
-| 6 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | Prefix sum + HashMap template — the `{0: 1}` seed trick |
+| 5 | [Group Anagrams](./problems/49-group-anagrams.md) | Using `sorted(word)` or a freq tuple as a HashMap key |
+| 6 | [Top K Frequent Elements](./problems/347-top-k-frequent-elements.md) | Frequency map + tracking max frequency |
+| 7 | [Subarray Sum Equals K](./problems/560-subarray-sum-equals-k.md) | Prefix sum + HashMap template — the `{0: 1}` seed trick |
 
 ### 🔴 Hard — Stretch Problem
 
 | # | Problem | Concept Taught |
 |---|---------|----------------|
-| 7 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | HashSet for $O(1)$ lookup, must solve in $O(n)$ without sorting |
+| 8 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | HashSet for $O(1)$ lookup, must solve in $O(n)$ without sorting |
 
 ---
 
