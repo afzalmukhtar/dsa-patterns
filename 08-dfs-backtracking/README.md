@@ -1,6 +1,6 @@
 # 08 — DFS / Backtracking
 
-> **Status:** ⏳ Not Started | **Problems Solved:** 0
+> **Status:** 🏗️ In Progress | **Problems Solved:** 3
 
 ---
 
@@ -25,7 +25,9 @@ Topics to cover:
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| — | *None yet* | — | — |
+| 104 | [Maximum Depth of Binary Tree](problems/104-maximum-depth-of-binary-tree.md) | Easy | Recursive DFS height calculation |
+| 112 | [Path Sum](problems/112-path-sum.md) | Easy | Recursive DFS with target reduction |
+| 543 | [Diameter of Binary Tree](problems/543-diameter-of-binary-tree.md) | Easy | Longest path via bottom-up DFS height calculation |
 
 ---
 
