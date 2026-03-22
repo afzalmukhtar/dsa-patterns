@@ -1,6 +1,6 @@
 # 07 — BFS / Level Order Traversal
 
-> **Status:** 🏗️ In Progress | **Problems Solved:** 2
+> **Status:** 🏗️ In Progress | **Problems Solved:** 3
 
 ---
 
@@ -27,6 +27,7 @@ Topics to cover:
 |---|---------|------------|-------|
 | 102 | [Binary Tree Level Order Traversal](problems/102-binary-tree-level-order-traversal.md) | Medium | Standard BFS using a queue |
 | 199 | [Binary Tree Right Side View](problems/199-binary-tree-right-side-view.md) | Medium | Last node of each BFS level |
+| 637 | [Average of Levels in Binary Tree](problems/637-average-of-levels-in-binary-tree.md) | Easy | Mean of each BFS level |
 
 ---
 
