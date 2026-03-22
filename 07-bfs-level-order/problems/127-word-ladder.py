@@ -7,48 +7,45 @@ class Solution:
         BFS (Breadth-First Search) Approach
         Shortest transformation sequence is a classic BFS problem. 
         Each word is a node, and words differing by one character have an edge.
-        
-        Time Complexity: O(M^2 * N)
-          - M is the length of the words.
-          - N is the total number of words in wordList.
-          - We process N words, and for each, we explore M positions and try 
-            26 characters, each taking O(M) to build a new string.
-        Space Complexity: O(M * N)
-          - To store the set of words and the BFS queue.
         """
-        # Convert list to set for O(1) lookups
-        word_set = set(wordList)
-        if endWord not in word_set:
+        wordList = set(wordList)
+        if endWord not in wordList:
             return 0
-        
+
         queue = deque([beginWord])
-        visited = {beginWord}
-        steps = 1
-        
+        visited = set([beginWord])
+
+        changes = 1
+
         while queue:
-            # Process all nodes at the current level
-            for _ in range(len(queue)):
-                word = queue.popleft()
+            level_size = len(queue)
+
+            for _ in range(level_size):
+                node = queue.popleft()
+                node_list = list(node)
                 
-                if word == endWord:
-                    return steps
-                
-                # Try all 1-character transformations at each position
-                for i in range(len(word)):
-                    original_char = word[i]
+                for i in range(len(node_list)):
+                    original_char = node_list[i]
+                    
                     for j in range(26):
                         char = chr(ord('a') + j)
                         if char == original_char:
                             continue
-                        
-                        # Build the potential neighbor
-                        neighbor = word[:i] + char + word[i+1:]
-                        
-                        if neighbor in word_set and neighbor not in visited:
-                            visited.add(neighbor)
-                            queue.append(neighbor)
                             
-            # Increment steps after processing one full level
-            steps += 1
+                        node_list[i] = char
+                        str_new_node = "".join(node_list)
+                        
+                        if str_new_node in wordList:
+                            if str_new_node == endWord:
+                                return changes + 1
+                            
+                            if str_new_node not in visited:
+                                queue.append(str_new_node)
+                                visited.add(str_new_node)
+                    
+                    # Backtrack the character change for the next position
+                    node_list[i] = original_char
+                    
+            changes += 1
             
         return 0
