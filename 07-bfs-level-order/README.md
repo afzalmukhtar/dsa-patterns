@@ -1,6 +1,6 @@
 # 07 — BFS / Level Order Traversal
 
-> **Status:** 🏗️ In Progress | **Problems Solved:** 6
+> **Status:** 🏗️ In Progress | **Problems Solved:** 7
 
 ---
 
@@ -31,6 +31,7 @@ Topics to cover:
 | 103 | [Binary Tree Zigzag Level Order Traversal](problems/103-binary-tree-zigzag-level-order-traversal.md) | Medium | BFS with a direction toggle and deque |
 | 127 | [Word Ladder](problems/127-word-ladder.md) | Hard | BFS for shortest transformation path |
 | 104 | [Maximum Depth of Binary Tree](problems/104-maximum-depth-of-binary-tree.md) | Easy | Depth is the number of BFS levels |
+| 112 | [Path Sum](problems/112-path-sum.md) | Easy | BFS with running sum to leaf nodes |
 
 ---
 
