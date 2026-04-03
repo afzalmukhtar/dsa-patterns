@@ -1,6 +1,6 @@
 # 04 — Prefix Sum
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
@@ -251,22 +251,23 @@ But again — the top-left corner got removed twice, so add it back:
 | 1 | [Running Sum of 1D Array](https://leetcode.com/problems/running-sum-of-1d-array/) | Literally just building the prefix array. Warmup. |
 | 2 | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Build prefix once, answer range queries. The textbook problem. |
 | 3 | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/) | Left sum = right sum. Tests your range query thinking. |
+| 4 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Prefix and Suffix products variant. Classic O(1) space trick. |
 
 ### 🟡 Tier 2 — Prefix Sum + HashMap (Do these second)
 
 | # | Problem | Why |
 |---|---------|-----|
-| 4 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | The most important one. prefix + hashmap, `seen[0]=1` trick. |
-| 5 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Modular prefix sum. Sum divisible by k, length ≥ 2. |
-| 6 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Modular prefix sum, count all valid subarrays. |
-| 7 | [Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs/) | Rearranges into prefix sum + hashmap pattern. Good pattern recognition test. |
+| 5 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | The most important one. prefix + hashmap, `seen[0]=1` trick. |
+| 6 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Modular prefix sum. Sum divisible by k, length ≥ 2. |
+| 7 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Modular prefix sum, count all valid subarrays. |
+| 8 | [Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs/) | Rearranges into prefix sum + hashmap pattern. Good pattern recognition test. |
 
 ### 🔴 Tier 3 — 2D Prefix Sum (Do these last)
 
 | # | Problem | Why |
 |---|---------|-----|
-| 8 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | The textbook 2D prefix problem. Build table, answer rectangle queries. |
-| 9 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Apply 2D prefix query repeatedly across the matrix. |
+| 9 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | The textbook 2D prefix problem. Build table, answer rectangle queries. |
+| 10 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Apply 2D prefix query repeatedly across the matrix. |
 
 ---
 
