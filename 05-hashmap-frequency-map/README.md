@@ -1,6 +1,6 @@
 # 05 — HashMap / Frequency Map
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 6
+> **Status:** 🔄 In Progress | **Problems Solved:** 7
 
 ---
 
@@ -221,7 +221,7 @@ def group_anagrams(words):
 
 | # | Problem | Concept Taught |
 |---|---------|----------------|
-| 8 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | HashSet for $O(1)$ lookup, must solve in $O(n)$ without sorting |
+| 8 | [Longest Consecutive Sequence](./problems/128-longest-consecutive-sequence.md) | HashSet for $O(1)$ lookup, must solve in $O(n)$ without sorting |
 
 ---
 
