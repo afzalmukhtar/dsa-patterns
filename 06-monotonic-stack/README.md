@@ -1,23 +1,21 @@
-# 06 — Monotonic Stack
+# 06 — Monotonic Stack & Deque
 
-> **Status:** ⏳ Not Started | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
 ## 📌 Pattern Notes
 
-*This section will be filled in as we study this pattern together.*
+### 1. What is it?
+A Monotonic Stack (or Deque) is a data structure where elements are always stored in a specific order (either **strictly increasing** or **strictly decreasing**).
 
-Topics to cover:
-- [ ] What is it?
-- [ ] When to use it? (signals)
-- [ ] Mental model / analogy
-- [ ] Brute force approach
-- [ ] Optimization insight
-- [ ] Optimal solution + complexity
-- [ ] Reusable template
-- [ ] Variations & edge cases
-- [ ] Practice problems
+When a new element arrives that would break the order, you "pop" elements from the stack until the order can be maintained.
+
+### 2. When to use it? (signals) 🚨
+- **Next Greater/Smaller Element:** "Find the first element to the right that is larger than the current one."
+- **Nearest Smaller Element:** "Find the first element to the left that is smaller."
+- **Sliding Window Maximum:** "Find the max in every window of size $k$."
+- **Online range queries:** When you need to maintain a maximum/minimum in a moving range.
 
 ---
 
@@ -25,7 +23,7 @@ Topics to cover:
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| — | *None yet* | — | — |
+| 1 | [Sliding Window Maximum](./problems/239-sliding-window-maximum.md) | Hard | Monotonic Deque (decreasing) to track the max in $O(1)$. |
 
 ---
 
