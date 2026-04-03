@@ -1,6 +1,6 @@
 # 04 — Prefix Sum
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 2
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
@@ -135,6 +135,8 @@ def count_subarrays_with_sum_k(nums, k):
       nums[i] += nums[i-1]
   ```
 
+> **⚠️ Note on Maximum Subarray (Kadane's):** While Maximum Subarray can be solved by tracking the minimum prefix sum ($max(P[j] - min\_P)$), it is fundamentally a **Dynamic Programming** problem. It should NOT be solved with standard Two Pointers (it won't work for negatives) or complex Prefix Sum logic. Refer to the [DP section](../09-dynamic-programming/problems/53-maximum-subarray.md) for the optimal solution.
+
 ---
 
 ## 🕵️ Deep Dive: The Subarray Sum Equals K Trick
@@ -242,8 +244,6 @@ But again — the top-left corner got removed twice, so add it back:
 
 ## 🗂️ LeetCode Practice List (Grouped & Ordered)
 
-> **💡 Practice Strategy:** Here is the curated practice list for Prefix Sum. Do not skip problem #4 (`Subarray Sum Equals K`) — everything in Tier 2 depends on truly owning that one pattern first!
-
 ### 🟢 Tier 1 — Core Prefix Sum (Do these first)
 
 | # | Problem | Why |
@@ -252,23 +252,22 @@ But again — the top-left corner got removed twice, so add it back:
 | 2 | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Build prefix once, answer range queries. The textbook problem. |
 | 3 | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/) | Left sum = right sum. Tests your range query thinking. |
 | 4 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Prefix and Suffix products variant. Classic O(1) space trick. |
-| 5 | [Maximum Subarray](./problems/53-maximum-subarray.md) | Kadane's Algorithm. Relates to Prefix Sum as maximizing $P[j] - P[i]$. |
 
 ### 🟡 Tier 2 — Prefix Sum + HashMap (Do these second)
 
 | # | Problem | Why |
 |---|---------|-----|
-| 6 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | The most important one. prefix + hashmap, `seen[0]=1` trick. |
-| 7 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Modular prefix sum. Sum divisible by k, length ≥ 2. |
-| 8 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Modular prefix sum, count all valid subarrays. |
-| 9 | [Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs/) | Rearranges into prefix sum + hashmap pattern. Good pattern recognition test. |
+| 5 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | The most important one. prefix + hashmap, `seen[0]=1` trick. |
+| 6 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Modular prefix sum. Sum divisible by k, length ≥ 2. |
+| 7 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Modular prefix sum, count all valid subarrays. |
+| 8 | [Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs/) | Rearranges into prefix sum + hashmap pattern. Good pattern recognition test. |
 
 ### 🔴 Tier 3 — 2D Prefix Sum (Do these last)
 
 | # | Problem | Why |
 |---|---------|-----|
-| 10 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | The textbook 2D prefix problem. Build table, answer rectangle queries. |
-| 11 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Apply 2D prefix query repeatedly across the matrix. |
+| 9 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | The textbook 2D prefix problem. Build table, answer rectangle queries. |
+| 10 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Apply 2D prefix query repeatedly across the matrix. |
 
 ---
 

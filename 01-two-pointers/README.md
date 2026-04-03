@@ -1059,6 +1059,11 @@ def max_profit(prices):
 |---|---------|------------|
 | 21 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | Easy |
 
+> **⚠️ Note on Maximum Subarray (Kadane's) and Stock Problems:**
+> While these involve two points in an array (buy/sell, start/end), they are **NOT** Two Pointer problems. They are solved using **Dynamic Programming** or **Greedy Scan** because you only need to track a "running min" or "running sum" as you move a single pointer forward.
+> - **Maximum Subarray:** Solve using [DP / Kadane's Algorithm](../09-dynamic-programming/problems/53-maximum-subarray.md).
+> - **Stock Buy/Sell:** Solve using a single-pass greedy scan.
+
 ### Suggested Practice Timeline
 - **Week 1 — Build the foundation**
   → Problems 1, 5, 7, 9, 10, 11 (all Easy)

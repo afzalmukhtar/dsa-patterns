@@ -1,23 +1,18 @@
 # 09 — Dynamic Programming
 
-> **Status:** ⏳ Not Started | **Problems Solved:** 0
+> **Status:** 🔄 In Progress | **Problems Solved:** 1
 
 ---
 
 ## 📌 Pattern Notes
 
-*This section will be filled in as we study this pattern together.*
+### 1. What is it?
+Dynamic Programming (DP) is essentially **recursion with caching**. It's about breaking a complex problem into smaller, overlapping subproblems, solving each once, and storing the result to avoid redundant work.
 
-Topics to cover:
-- [ ] What is it?
-- [ ] When to use it? (signals)
-- [ ] Mental model / analogy
-- [ ] Brute force approach
-- [ ] Optimization insight
-- [ ] Optimal solution + complexity
-- [ ] Reusable template
-- [ ] Variations & edge cases
-- [ ] Practice problems
+### 2. When to use it? (signals) 🚨
+- **Optimal Substructure:** The solution to the overall problem can be built from the solutions to its subproblems.
+- **Overlapping Subproblems:** The same subproblems are solved multiple times during the computation.
+- **Keywords:** "Maximum", "Minimum", "Longest", "Shortest", "Number of ways to...".
 
 ---
 
@@ -25,7 +20,7 @@ Topics to cover:
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| — | *None yet* | — | — |
+| 1 | [Maximum Subarray](./problems/53-maximum-subarray.md) | Medium | Kadane's Algorithm — The "Standard" DP solution. |
 
 ---
 
