@@ -5,9 +5,13 @@
 ---
 
 ## 1. What is it?
-A regular stack lets you push and pop anything. A **Monotonic Stack** has one extra rule: **Before you push a new element, you evict anything that violates the order.**
+The word **Monotonic** simply means "moving in only one direction" — no zig-zagging allowed.
+- **Monotonic Increasing:** Never goes down (e.g., `1, 2, 2, 3, 5, 8`)
+- **Monotonic Decreasing:** Never goes up (e.g., `10, 8, 5, 5, 3, 1`)
 
-The stack stays either always-increasing or always-decreasing from bottom to top. It is a list of **unresolved elements** waiting for their "answer."
+A regular stack lets you push and pop anything. A **Monotonic Stack** has one extra rule: **Before you push a new element, you evict anything that violates the order.** The stack stays strictly "one-way."
+
+It is a list of **unresolved elements** waiting for their "answer."
 
 ## 2. When do I use it?
 The signal phrases in a problem that scream Monotonic Stack:
