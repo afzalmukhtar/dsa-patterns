@@ -1,6 +1,6 @@
 # Pattern #8: BFS / Level Order Traversal
 
-> **Status:** 🔄 In Progress | **Solved:** 5
+> **Status:** 🔄 In Progress | **Solved:** 6
 
 ---
 
@@ -97,7 +97,7 @@ def multi_source_bfs(sources):
 | # | Problem | Difficulty | Link |
 |---|---------|------------|------|
 | 1 | Binary Tree Level Order Traversal | Medium | [LC 102](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
-| 2 | Rotting Oranges | Medium | [LC 994](https://leetcode.com/problems/rotting-oranges/) |
+| 2 | Rotting Oranges | Medium | [./problems/994-rotting-oranges.md](./problems/994-rotting-oranges.md) ([Sol](./problems/994-rotting-oranges.py)) |
 | 3 | 01 Matrix | Medium | [LC 542](https://leetcode.com/problems/01-matrix/) |
 | 4 | Minimum Genetic Mutation | Medium | [LC 433](https://leetcode.com/problems/minimum-genetic-mutation/) |
 | 5 | Map of Highest Peak | Medium | [LC 1765](https://leetcode.com/problems/map-of-highest-peak/) |
