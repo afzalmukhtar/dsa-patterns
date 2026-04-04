@@ -10,108 +10,74 @@
 A regular stack lets you push and pop anything. A **Monotonic Stack (or Monotonic Deque)** is a data structure where elements are always stored in a specific order (either **strictly increasing** or **strictly decreasing**).
 **Before you push a new element, you evict anything that violates the order.**
 
-That's it. The stack stays either always-increasing or always-decreasing from bottom to top.
-
-| Monotonic Increasing Stack (bottom → top) | Monotonic Decreasing Stack (bottom → top) |
-| :--- | :--- |
-| `[ 2, 5, 7, 9 ]` ✅ | `[ 9, 7, 5, 2 ]` ✅ |
-| `[ 2, 5, 3, 9 ]` ❌ | `[ 9, 5, 7, 2 ]` ❌ |
-
 ### 2. When do I use it? — The Signals 🚨
-The signal phrases in a problem that scream monotonic stack:
-- "Next greater element"
-- "Next smaller element"
-- "Previous greater element"
+The common thread: **"For each element, find the nearest element in a specific direction that satisfies a condition."**
+- "Next greater element" / "Next smaller element"
+- "Previous greater element" / "Previous smaller element"
 - "How many days until warmer temperature"
 - "Largest rectangle in histogram"
-- "The nearest element that is larger/smaller"
-- "For each element, find the first X to its left/right"
 
-**The common thread:** "For each element, find the nearest element in a specific direction that satisfies a condition." If you're ever thinking *"I need to look backward or forward to find the closest thing that's bigger/smaller"* — that's your trigger.
+### 3. The Logic — "Unresolved" Elements
+Forget complex analogies. Think of the stack as a **list of unresolved elements**.
 
-### 3. The Mental Model 🧠
-Imagine you're at a concert, standing in a row. You want to know: *"Who is the first person taller than me, to my right?"*
+1.  **The Stack = Unresolved Elements:** At any moment, the stack holds indices of elements that have *not yet found* their answer (e.g., they haven't found a taller bar to their right).
+2.  **New Element Resolves Old Ones:** When a new element arrives, if it is "stronger" (greater/smaller) than the top of the stack, it **resolves** those elements.
+3.  **The Pop Moment:** The moment an element is popped, it has found its answer. The answer is the current element that triggered the pop.
 
-- **The naive way:** Every person turns around and scans right until they find someone taller. That's $O(n^2)$.
-- **The smart way:** Imagine walking left to right and maintaining a "waiting list" of people who haven't found their answer yet. The moment a new tall person arrives, they resolve the answer for everyone shorter than them on the waiting list.
-- That waiting list is the **Monotonic Stack**.
+#### Visual Logic (Next Greater Element)
+Array: `[2, 1, 5, 3, 6]`
 
-### 4. Brute Force First
-**Problem:** Next Greater Element
-Given: `[2, 1, 5, 3, 6]`
-Output: `[5, 5, 6, 6, -1]`
+- **Step 1 (2):** Stack `[0]` (value 2). Nothing to resolve.
+- **Step 2 (1):** Stack `[0, 1]` (values 2, 1). 1 is not taller than 2.
+- **Step 3 (5):** 5 is taller than 1! **Pop 1**, `result[1] = 5`. 5 is taller than 2! **Pop 0**, `result[0] = 5`. Stack `[2]` (value 5).
+- **Step 4 (3):** Stack `[2, 3]` (values 5, 3).
+- **Step 5 (6):** 6 is taller than 3! **Pop 3**, `result[3] = 6`. 6 is taller than 5! **Pop 2**, `result[2] = 6`. Stack `[4]` (value 6).
 
+### 4. Deep Dive: Popping & Result Logic
+The core of the algorithm lives in these two lines:
 ```python
-def next_greater_brute(nums):
+while stack and nums[i] > nums[stack[-1]]:
+    idx = stack.pop()       # This element's search is OVER
+    result[idx] = nums[i]   # The answer is the element that just arrived
+```
+
+- **Why the `while` loop?** One new element can be the answer for *multiple* previous elements (like 5 resolving both 1 and 2).
+- **Why `stack.pop()`?** We remove the element because it found its "nearest" match. It doesn't need to look anymore.
+- **Why `result[idx] = nums[i]`?** We use the index stored in the stack to record the answer exactly where it belongs in the output array.
+
+### 5. Generalized Rules for Monotonic Stack
+Follow this decision tree for any problem:
+
+#### Rule 1: Decide Stack Type
+- Looking for **GREATER** element → **DECREASING** stack (pop when `current > top`)
+- Looking for **SMALLER** element → **INCREASING** stack (pop when `current < top`)
+
+#### Rule 2: Decide Direction
+- **Next** greater/smaller (Right) → Traverse **Left to Right**
+- **Previous** greater/smaller (Left) → Traverse **Right to Left**
+
+#### Rule 3: The Template
+```python
+def solve(nums):
     n = len(nums)
     result = [-1] * n
-    for i in range(n):
-        for j in range(i + 1, n):   # scan everything to the right
-            if nums[j] > nums[i]:
-                result[i] = nums[j]
-                break
-    return result
-```
-**Why it's slow:** For every element, you potentially scan all elements to its right.
-- **Time:** $O(n^2)$
-- **Space:** $O(1)$
-
-### 5. The Optimization Insight — The "Aha" Moment 💡
-When you scan right and find a greater element, what do you do with that information? In brute force — nothing. You throw it away and repeat the same scan for the next element.
-
-**The insight:** When element X is the "next greater" for element A, it's also the next greater for every element between them that is smaller than X.
-
-So instead of scanning forward, scan left-to-right and look backward using a stack:
-*"I'm processing element X. Are there any unresolved elements behind me that X is the answer to?"*
-
-If X is greater than the top of the stack → pop it, record the answer, repeat. Then push X itself (it's now waiting for its next greater).
-
-### 6. The Optimal Solution — Step by Step
-Array: `[2, 1, 5, 3, 6]`
-Stack stores indices (so we can fill `result[i]`).
-
-1. **i=0, nums[0]=2:** Stack empty, push 0. Stack: `[0]` (values: `[2]`)
-2. **i=1, nums[1]=1:** `1 < 2`, don't pop. push 1. Stack: `[0, 1]` (values: `[2, 1]`)
-3. **i=2, nums[2]=5:**
-   - `5 > 1` → POP 1, `result[1] = 5`
-   - `5 > 2` → POP 0, `result[0] = 5`
-   - Stack empty, push 2. Stack: `[2]` (values: `[5]`)
-4. **i=3, nums[3]=3:** `3 < 5`, don't pop. push 3. Stack: `[2, 3]` (values: `[5, 3]`)
-5. **i=4, nums[4]=6:**
-   - `6 > 3` → POP 3, `result[3] = 6`
-   - `6 > 5` → POP 2, `result[2] = 6`
-   - Stack empty, push 4. Stack: `[4]` (values: `[6]`)
-
-**Final result:** `[5, 5, 6, 6, -1]` ✅
-- **Time:** $O(n)$ — every element is pushed once and popped once.
-- **Space:** $O(n)$ — the stack.
-
-### 7. The Template
-This is the reusable skeleton. Burn this into memory:
-
-```python
-def monotonic_stack_template(nums):
-    n = len(nums)
-    result = [-1] * n      # default: no answer found
-    stack = []             # stores INDICES, not values
+    stack = [] # Stores INDICES
 
     for i in range(n):
-        # While the current element "resolves" the top of the stack:
-        while stack and nums[i] > nums[stack[-1]]:   # ← change > to < for "next smaller"
+        # 1. RESOLVE: Pop everything the current element "beats"
+        while stack and CONDITION(nums[i], nums[stack[-1]]):
             idx = stack.pop()
-            result[idx] = nums[i]                    # current element is the answer
-
+            result[idx] = RECORD_LOGIC # value, distance, or area
+            
+        # 2. ADD: Current element joins the "unresolved" list
         stack.append(i)
-
+        
     return result
 ```
 
-### 8. Variations and Edge Cases
-- **Variation 1: Next Smaller Element:** Just flip the comparison: `while stack and nums[i] < nums[stack[-1]]`
-- **Variation 2: Previous Greater Element:** Traverse right to left (or check `stack[-1]` after popping for NGE).
-- **Variation 3: Distance instead of value:** Record `i - idx` instead of `nums[i]` (e.g., Daily Temperatures).
-- **Variation 4: Circular array:** Process the array twice (`i` from `0` to `2n-1`), use `i % n` to index.
-- **Variation 5: Largest Rectangle in Histogram:** Pop when the next bar is shorter. Compute area using the popped bar as height and the distance between the current index and the new stack top as width.
+#### Rule 4: Stack vs Deque
+- **Stack:** Used for "nearest greater/smaller" with no range limit.
+- **Deque:** Used when there is a **window size (k)**. You must also evict from the front (`popleft`) if `deque[0]` is outside the window: `while deque and deque[0] <= i - k: deque.popleft()`.
 
 ---
 
@@ -119,13 +85,8 @@ def monotonic_stack_template(nums):
 
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
-| 1 | [Sliding Window Maximum](./problems/239-sliding-window-maximum.md) | Hard | Monotonic Deque (decreasing) to track the max in $O(1)$. |
-| 2 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/) | Easy | Pure template, no tricks. |
-| 3 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Store distance, not value. |
-| 4 | [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) | Medium | Circular array variant. |
-| 5 | [Online Stock Span](https://leetcode.com/problems/online-stock-span/) | Medium | Previous greater, streaming data. |
-| 6 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Pop triggers area computation. |
-
----
-
-> **The Mental Trigger:** "For each element, find the nearest element in one direction satisfying a condition" → Monotonic Stack. Maintain a stack of unresolved elements. Every new element resolves everything it can, then waits its turn.
+| 1 | [Sliding Window Maximum](./problems/239-sliding-window-maximum.md) | Hard | Monotonic Deque (decreasing) to track max in $O(1)$. |
+| 2 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/) | Easy | Pure template. |
+| 3 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Record distance: `i - idx`. |
+| 4 | [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) | Medium | Circular array: loop twice with `i % n`. |
+| 5 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Pop triggers area calculation. |
