@@ -1,6 +1,6 @@
 # Pattern #7: Monotonic Stack
 
-> **Status:** 🔄 In Progress | **Solved:** 6
+> **Status:** 🔄 In Progress | **Solved:** 7
 
 ---
 
@@ -169,4 +169,4 @@ Stack     Deque
 | 3 | [Next Greater Element II](./problems/503-next-greater-element-ii.md) ([Sol](./problems/503-next-greater-element-ii.py)) | Medium | Circular Array |
 | 4 | [Online Stock Span](./problems/901-online-stock-span.md) ([Sol](./problems/901-online-stock-span.py)) | Medium | Previous Greater / Span |
 | 5 | [Largest Rectangle in Histogram](./problems/84-largest-rectangle-in-histogram.md) ([Sol](./problems/84-largest-rectangle-in-histogram.py)) | Hard | Pop triggers area calculation |
-| 6 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | Monotonic Deque variation |
+| 6 | [Sliding Window Maximum](./problems/239-sliding-window-maximum.md) ([Sol](./problems/239-sliding-window-maximum.py)) | Hard | Monotonic Deque variation |

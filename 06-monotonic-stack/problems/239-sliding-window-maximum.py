@@ -4,53 +4,37 @@ from typing import List
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         """
-        Finds the maximum in each sliding window of size k using a Monotonic Deque.
-        Time Complexity: O(n)
-        Space Complexity: O(k)
+        My understanding of the approach:
+        1. We maintain a deque (monotonic queue) that stores indices of nums.
+        2. As we traverse from start to end, we want to keep the largest elements 
+           in the queue.
+        3. If the incoming element nums[i] is larger than the elements at the 
+           back of the queue, we pop them until the queue is empty or the back 
+           element is larger. This maintains a decreasing order (monotonic) of values.
+        4. We add the current index to the back of the queue.
+        5. Before recording the maximum, we check if the element at the front 
+           (the current maximum) is outside the current window of size k. 
+           If the front index (queue[0]) is less than (i - k + 1), it's no longer 
+           in range, so we popleft().
+        6. Once the window reaches size k (i >= k - 1), we can start adding the 
+           maximum (which is always at nums[queue[0]]) to our result list.
         """
-        dq = deque()  # stores indices, where values at these indices are decreasing
-        ans = []
-        
-        for i, num in enumerate(nums):
-            # 1. Remove indices that are no longer in the sliding window
-            if dq and dq[0] < i - k + 1:
-                dq.popleft()
+        queue = deque([]) # monotonic queue, stores indices
+        result = []
+
+        for i in range(len(nums)):
+            # Maintain monotonic property: remove smaller elements from back
+            while queue and nums[i] > nums[queue[-1]]:
+                queue.pop()
             
-            # 2. Maintain a monotonic decreasing deque:
-            # While the current number is greater than the value at the back index,
-            # those indices can never be the maximum again. Pop them.
-            while dq and nums[dq[-1]] < num:
-                dq.pop()
-                
-            dq.append(i)
-            
-            # 3. If we've processed at least k elements, the front of the deque
-            # is the index of the maximum element for the current window.
+            queue.append(i)
+
+            # Check if current max is out of bounds (out of window range)
+            if queue[0] < i - k + 1:
+                queue.popleft()
+
+            # Result is valid only after first window is complete (length k)
             if i >= k - 1:
-                ans.append(nums[dq[0]])
+                result.append(nums[queue[0]])
                 
-        return ans
-
-# --- Test Cases ---
-if __name__ == "__main__":
-    sol = Solution()
-    
-    # Test 1
-    nums1 = [1, 3, -1, -3, 5, 3, 6, 7]
-    k1 = 3
-    expected1 = [3, 3, 5, 5, 6, 7]
-    assert sol.maxSlidingWindow(nums1, k1) == expected1, f"Test 1 Failed: {sol.maxSlidingWindow(nums1, k1)}"
-    
-    # Test 2
-    nums2 = [1]
-    k2 = 1
-    expected2 = [1]
-    assert sol.maxSlidingWindow(nums2, k2) == expected2, f"Test 2 Failed: {sol.maxSlidingWindow(nums2, k2)}"
-    
-    # Test 3
-    nums3 = [9, 11]
-    k3 = 2
-    expected3 = [11]
-    assert sol.maxSlidingWindow(nums3, k3) == expected3, f"Test 3 Failed: {sol.maxSlidingWindow(nums3, k3)}"
-
-    print("All tests passed!")
+        return result
