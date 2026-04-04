@@ -1,6 +1,6 @@
 # Pattern #7: Monotonic Stack
 
-> **Status:** 🔄 In Progress | **Solved:** 2
+> **Status:** 🔄 In Progress | **Solved:** 3
 
 ---
 
@@ -165,7 +165,7 @@ Stack     Deque
 | # | Problem | Difficulty | Notes |
 |---|---------|------------|-------|
 | 1 | [Next Greater Element I](./problems/496-next-greater-element-i.md) ([Sol](./problems/496-next-greater-element-i.py)) | Easy | Pure Template |
-| 2 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Record distance: `i - idx` |
+| 2 | [Daily Temperatures](./problems/739-daily-temperatures.md) ([Sol](./problems/739-daily-temperatures.py)) | Medium | Record distance: `i - idx` |
 | 3 | [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) | Medium | Circular Array |
 | 4 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Pop triggers area calculation |
 | 5 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | Monotonic Deque variation |
