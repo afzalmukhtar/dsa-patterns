@@ -109,7 +109,11 @@ def solve(nums):
 - **No Extra Space:** Usually not possible as the stack is essential for $O(n)$.
 
 ## 9. Practice Problems
-1. [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/) — Easy (Pure Template)
-2. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — Medium (Distance Recording)
-3. [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) — Medium (Circular Array)
-4. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — Hard (Pop triggers area calculation)
+
+| # | Problem | Difficulty | Notes |
+|---|---------|------------|-------|
+| 1 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/) | Easy | Pure Template |
+| 2 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Record distance: `i - idx` |
+| 3 | [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) | Medium | Circular Array |
+| 4 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Pop triggers area calculation |
+| 5 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | Monotonic Deque variation |

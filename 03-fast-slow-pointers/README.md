@@ -1,114 +1,90 @@
-# 03 — Fast & Slow Pointers
+# Pattern #3: Fast & Slow Pointers (Hare & Tortoise)
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 4
+> **Status:** 🔄 In Progress | **Solved:** 4
 
 ---
 
-## 📌 Pattern Notes
+## 1. What is it?
+Also known as **Hare & Tortoise algorithm**, this is a pointer technique where two pointers move through a sequence (usually a linked list or array) at **different speeds**.
 
-### 1. What Is It?
-Imagine two runners on a track. One is a tortoise (slow) and the other is a hare (fast). The hare runs exactly twice as fast as the tortoise.
+## 2. When do I use it?
+Look for these signals:
+- **Linked Lists:** Finding cycles, midpoints, or the Nth node from the end.
+- **Arrays:** Finding duplicates or cyclic patterns.
+- **Trigger:** "Is there a cycle in this linked list?" or "Find the middle of the list in one pass."
 
-In a linear track with an end, the hare will simply reach the finish line first. But if the track has a **cycle (a loop)**, the faster runner will eventually lap the slower runner and they will meet again.
+## 3. The Mental Model
+Imagine a circular running track. If two runners start at the same point, and one runs twice as fast as the other, the fast runner will eventually "lap" the slow runner. They will meet again only if the track is a loop.
+```text
+S = Slow (1 step)
+F = Fast (2 steps)
 
-This is **Floyd’s Cycle-Finding Algorithm** (also known as Tortoise and Hare).
+[1 -> 2 -> 3 -> 4 -> 5 -> 3...]
+ S,F
+      S    F
+           S         F
+                S,F  <-- MET! (Cycle detected)
+```
 
-### 2. When Do I Use It? — The Signals 🚨
-This pattern is almost exclusively used for **Linked Lists** and **Arrays representing pointers**.
-
-Look for these trigger phrases:
-- "Detect a cycle in a linked list"
-- "Find the start of a cycle"
-- "Find the middle of a linked list"
-- "Determine if a number is a Happy Number"
-- "Find a duplicate number without extra space" (where the array can be treated as a pointer map)
-
-### 3. The Mental Model 🧠
-Think of a circular racing track:
-- **Slow Pointer:** Moves 1 step at a time.
-- **Fast Pointer:** Moves 2 steps at a time.
-
-If there's no loop, the `fast` pointer hits the end (`null`).
-If there **is** a loop, the `fast` pointer will eventually enter the loop, stay there, and catch up to the `slow` pointer from behind.
-
-### 4. The "Aha" Moments 💡
-
-#### Finding the Middle
-When the `fast` runner reaches the end (distance $N$), the `slow` runner has traveled exactly half that distance ($N/2$). Thus, the `slow` pointer is at the **middle node**.
-
-#### Detecting a Cycle
-If `slow == fast` at any point (after starting), a cycle exists.
-
-#### Finding the Start of the Cycle
-This is the most non-intuitive part. If they meet at a point `M` inside the cycle:
-1. Keep one pointer at the meeting point `M`.
-2. Move the other pointer back to the **start** of the list.
-3. Move both pointers at the **same speed** (1 step).
-4. They will meet exactly at the **entrance** of the cycle.
-
-### 5. The Optimal Solution (Template)
-
-#### Cycle Detection
+## 4. Brute Force First
+To detect a cycle, you could use a Hash Set to store every node you visit. If you see a node you've already seen, there's a cycle.
 ```python
 def has_cycle(head):
+    seen = set()
+    while head:
+        if head in seen: return True
+        seen.add(head)
+        head = head.next
+    return False
+```
+- **Time:** $O(n)$
+- **Space:** $O(n)$ (The set is the problem — can we do it in $O(1)$?)
+
+## 5. The Optimization Insight
+If there is a cycle, the gap between the Fast and Slow pointers increases by 1 each step. Eventually, the gap will equal the length of the cycle, and they will land on the same node. This allows us to detect cycles without any extra memory.
+
+## 6. The Optimal Solution
+Use two pointers moving at speeds 1 and 2.
+- **Time:** $O(n)$
+- **Space:** $O(1)$
+
+```python
+def solve(head):
     slow = fast = head
-    
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True # Cycle Found
+    return False # No Cycle
+```
+
+## 7. The Template
+```python
+def fast_slow_template(head):
+    slow = fast = head
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
         
         if slow == fast:
-            return True
-            
-    return False
+            # Handle Cycle Logic
+            pass
+    return result
 ```
 
-#### Middle of Linked List
-```python
-def find_middle(head):
-    slow = fast = head
-    
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        
-    return slow # Middle node
-```
+## 8. Variations and Edge Cases
+- **Middle of List:** When Fast hits the end, Slow is at the exact middle.
+- **Cycle Start:** After they meet, move one back to start. Move both at speed 1. They meet at the cycle entrance.
+- **Remove Nth from End:** Maintain a fixed gap of N between two pointers.
+- **Arrays (Find Duplicate):** Map the array values to indices. A duplicate value creates a "cycle" in index jumping.
 
-### 6. The 287 "Duplicate Number" Trick
-Why does this work on an array?
-If `nums = [1, 3, 4, 2, 2]`, we can treat it as a functional mapping:
-- Index 0 → value 1
-- Index 1 → value 3
-- Index 3 → value 2
-- Index 2 → value 4
-- Index 4 → value 2 (Duplicate!)
+## 9. Practice Problems
 
-Since two different indices (3 and 4) both point to the same value (2), this creates a "cycle" in the pointer logic. Floyd's algorithm finds the entry point of that cycle, which is the duplicate number.
-
----
-
-## 🗂️ LeetCode Practice List (Grouped & Ordered)
-
-### Group 1: Linked List Basics
-| # | Problem | Difficulty | Logic |
-|---|---------|------------|-------|
-| 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | Basic detection |
-| 876 | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) | Easy | Find midpoint |
-| 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium | Find cycle entrance |
-
-### Group 2: Mathematical / Array Cycles
-| # | Problem | Difficulty | Logic |
-|---|---------|------------|-------|
-| 202 | [Happy Number](https://leetcode.com/problems/happy-number/) | Easy | Sum of squares cycle |
-| 287 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium | Array as pointers |
-
-### Group 3: Advanced Applications
-| # | Problem | Difficulty | Logic |
-|---|---------|------------|-------|
-| 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | Medium | Midpoint + Reverse + Merge |
-| 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | Easy | Midpoint + Reverse |
-
----
-
-*Notes and problems will be added here over time.*
+| # | Problem | Difficulty | Sub-Pattern |
+|---|---------|------------|-------------|
+| 1 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | Cycle Detection |
+| 2 | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) | Easy | Midpoint Finding |
+| 3 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium | Cycle Entrance |
+| 4 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium | Array Cycle |
+| 5 | [Happy Number](https://leetcode.com/problems/happy-number/) | Easy | Logical Cycle |

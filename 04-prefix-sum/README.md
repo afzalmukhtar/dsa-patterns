@@ -1,274 +1,91 @@
-# 04 — Prefix Sum
+# Pattern #5: Prefix Sum
 
-> **Status:** 🔄 In Progress | **Problems Solved:** 1
+> **Status:** 🔄 In Progress | **Solved:** 1
 
 ---
 
-## 📌 Pattern Notes
+## 1. What is it?
+A **Prefix Sum** is a precomputed array where each index $i$ stores the sum of all elements from the start of the array up to $i$. It allows us to calculate the sum of **any** subarray in $O(1)$ time.
 
-### 1. What is it?
-Imagine you have an array of numbers, and someone keeps asking you:
-*"What's the sum of elements from index 2 to index 7?"*
+## 2. When do I use it?
+Look for these signals:
+- **Range Queries:** "Find the sum of elements from index L to R multiple times."
+- **Subarray Sum Equals K:** "Count how many subarrays sum to a target value."
+- **Trigger:** "I need to perform many range sum calculations, and the array doesn't change."
 
-The naive way: add them up each time → $O(n)$ per query.
-The **Prefix Sum** way: precompute all cumulative sums once, then answer any range query in $O(1)$.
-
-It's a precomputation trick — trade a little space and one upfront pass for lightning-fast range queries later.
-
-### 2. When do I use it? — The Signals 🚨
-
-| Clue in the problem | Why it points to Prefix Sum |
-|---|---|
-| "sum of subarray from i to j" | Classic range query |
-| "number of subarrays with sum = k" | Need cumulative sum + hashmap |
-| "find subarray with sum divisible by k" | Modular prefix sums |
-| Multiple queries on same array | Precompute once, query many |
-| "running total" or "balance at time t" | Prefix sum is a running total |
-| 2D grid: "sum of rectangle" | 2D prefix sum |
-
-### 3. The Mental Model
-Think of it like a ruler with pre-marked mile markers on a highway:
-
+## 3. The Mental Model
+Imagine you're walking along a path, and you're keeping track of the total distance you've covered from the start at every milestone.
 ```text
-Highway:   [3,  1,  4,  1,  5,  9,  2,  6]
-Miles:      0   3   4   8   9  14  23  25  31
-                ^               ^
-         start=1            end=5
+Array: [3, 1, 4, 2]
+Prefix Sum: [3, 4, 8, 10]
+             ↑  ↑  ↑   ↑
+             3 3+1 3+1+4 3+1+4+2
 ```
-Distance from `1→5` = `miles[6] - miles[1] = 23 - 3 = 20`.
-You don't re-drive the road each time. You just subtract two markers.
+To find the distance between Milestone 1 and Milestone 3, you don't re-measure. You just subtract: `Total at 3 - Total before 1`.
 
-### 4. Brute Force First
-**Problem:** Given array `nums`, answer `Q` queries: "what's the sum from index `L` to `R`?"
-
+## 4. Brute Force First
+For every range query $(L, R)$, loop from $L$ to $R$ and sum the elements.
 ```python
-# O(n) per query → O(n * Q) total — terrible for many queries
-def range_sum_brute(nums, L, R):
+def range_sum(arr, L, R):
     total = 0
-    for i in range(L, R + 1):
-        total += nums[i]
+    for i in range(L, R + 1): # O(n) per query
+        total += arr[i]
     return total
 ```
-For 1000 queries on a 10,000 element array → **10 million operations**. 😬
+- **Time:** $O(n)$ per query, $O(n \times m)$ for $m$ queries.
+- **Why it's slow:** If you ask for the same or overlapping ranges multiple times, you're doing the same additions over and over.
 
-### 5. The "Aha" Insight 💡
-> **Sum from L to R = (sum from 0 to R) − (sum from 0 to L−1)**
+## 5. The Optimization Insight
+The sum of subarray `arr[L...R]` is simply `prefix[R] - prefix[L-1]`.
+By spending $O(n)$ time once to build the prefix array, we can answer **any** future query in $O(1)$.
 
-If you precompute all prefix sums: `prefix[i] = nums[0] + nums[1] + ... + nums[i-1]`
-Then: `rangeSum(L, R) = prefix[R+1] - prefix[L]`
+## 6. The Optimal Solution
+Precompute the prefix sum array.
+- **Time:** $O(n)$ for precomputation, $O(1)$ per query.
+- **Space:** $O(n)$ for the prefix array.
 
-You do **$O(n)$ work once**, then every query is **$O(1)$**.
-
-### 6. The Optimal Solution
-**Step-by-step visual:**
-```text
-nums   =  [ 3,  1,  4,  1,  5,  9 ]
-index       0   1   2   3   4   5
-
-prefix =  [ 0,  3,  4,  8,  9, 14, 23 ]
-index       0   1   2   3   4   5   6
-            ^
-            always start with 0 (empty prefix)
-
-Query: sum from L=2 to R=4
-= prefix[5] - prefix[2]
-= 14 - 4
-= 10  ✓  (4 + 1 + 5 = 10)
+```python
+def solve(arr, queries):
+    n = len(arr)
+    prefix = [0] * n
+    prefix[0] = arr[0]
+    for i in range(1, n):
+        prefix[i] = prefix[i-1] + arr[i]
+        
+    for L, R in queries:
+        total = prefix[R] - (prefix[L-1] if L > 0 else 0)
+        # return or print total
 ```
 
-**Code:**
+## 7. The Template (Subarray Sum Count)
+Prefix sums are often paired with a Hashmap to find subarrays that sum to $K$.
 ```python
-def build_prefix(nums):
-    prefix = [0] * (len(nums) + 1)
-    for i in range(len(nums)):
-        prefix[i + 1] = prefix[i] + nums[i]
-    return prefix
-
-def range_sum(prefix, L, R):
-    return prefix[R + 1] - prefix[L]
-```
-**Time:** $O(n)$ to build, $O(1)$ per query | **Space:** $O(n)$ for the prefix array
-
-### 7. The Templates
-
-#### Basic Prefix Sum Template
-```python
-def solve(nums):
-    n = len(nums)
-    # Step 1: Build prefix sum (size n+1, prefix[0] = 0)
-    prefix = [0] * (n + 1)
-    for i in range(n):
-        prefix[i + 1] = prefix[i] + nums[i]
-    
-    # Step 2: Answer range query in O(1)
-    # sum(L, R) = prefix[R+1] - prefix[L]
-    return prefix
-```
-
-#### Prefix Sum + HashMap Template (Subarray Sum = k)
-```python
-from collections import defaultdict
-
-def count_subarrays_with_sum_k(nums, k):
+def subarray_sum_count(nums, k):
     count = 0
-    running_sum = 0
-    seen = defaultdict(int)
-    seen[0] = 1  # ← CRITICAL: empty prefix has sum 0
+    curr_sum = 0
+    sums = {0: 1} # {prefix_sum: frequency}
     
-    for num in nums:
-        running_sum += num
-        # If (running_sum - k) was seen before,
-        # those are valid subarrays ending here
-        count += seen[running_sum - k]
-        seen[running_sum] += 1
-    
+    for x in nums:
+        curr_sum += x
+        # If (curr_sum - k) exists, it means a subarray ending here sums to k
+        count += sums.get(curr_sum - k, 0)
+        sums[curr_sum] = sums.get(curr_sum, 0) + 1
+        
     return count
 ```
 
-### 8. Variations & Edge Cases
+## 8. Variations and Edge Cases
+- **2D Prefix Sum:** Precompute sums for rectangles in a grid to answer 2D range queries in $O(1)$.
+- **Product Except Self:** Use prefix and suffix products to avoid division.
+- **XOR Queries:** Prefix XOR works exactly like prefix sum because $A \oplus B \oplus A = B$.
+- **0-indexing:** Using a `prefix` array of size `n+1` (where `prefix[0]=0`) often simplifies the logic (`prefix[R+1] - prefix[L]`).
 
-- **Negative numbers:** Unlike sliding window, prefix sum + hashmap handles negatives perfectly because it's just arithmetic subtraction.
-- **Subarray sum divisible by k:** Instead of `seen[sum - k]`, track `seen[sum % k]`. Two prefix sums with the same remainder mean the subarray between them is divisible by k.
-- **In-place Prefix Sum:** If you can't use extra space and are allowed to modify the input:
-  ```python
-  for i in range(1, len(nums)):
-      nums[i] += nums[i-1]
-  ```
+## 9. Practice Problems
 
-> **⚠️ Note on Maximum Subarray (Kadane's):** While Maximum Subarray can be solved by tracking the minimum prefix sum ($max(P[j] - min\_P)$), it is fundamentally a **Dynamic Programming** problem. It should NOT be solved with standard Two Pointers (it won't work for negatives) or complex Prefix Sum logic. Refer to the [DP section](../09-dynamic-programming/problems/53-maximum-subarray.md) for the optimal solution.
-
----
-
-## 🕵️ Deep Dive: The Subarray Sum Equals K Trick
-
-> **❓ Common Doubt:** *"I did not understand the math for Prefix Sum + HashMap. If `prefix[i] - prefix[j] = k`, does that mean if `prefix[j]` exists, there is 100% a subarray present that has the sum equal to k?"*
-
-Yes! You've understood it perfectly. We want a subarray from `j → i` with sum = `k`.
-
-In prefix sum language, that means:
-`prefix[i] - prefix[j] = k`
-
-Rearrange:
-`prefix[j] = prefix[i] - k`
-
-So as we walk through the array computing `prefix[i]` (which is `running_sum` in the code), we just ask:
-*"Has the value `running_sum - k` ever appeared as a prefix sum before?"*
-If yes → there exists some index `j` where that prefix sum lived → the subarray from `j` to `i` has sum exactly `k`.
-
-**Visual trace:**
-`nums = [1, 2, 1, 3], k = 3`
-```text
-prefix array: [0, 1, 3, 4, 7]
-               ^
-            seen={0:1} initialized here
-
-num=1: sum=1, need seen[1-3]=-2 → nope. seen={0:1, 1:1}
-num=2: sum=3, need seen[3-3]=0  → seen[0]=1 → count=1 🎯 (subarray [1,2])
-num=1: sum=4, need seen[4-3]=1  → seen[1]=1 → count=2 🎯 (subarray [2,1])
-num=3: sum=7, need seen[7-3]=4  → seen[4]=1 → count=3 🎯 (subarray [3])
-
-Answer: 3 subarrays → [1,2], [2,1], [3] ✓
-```
-
-**The tricky part — why `seen[0] = 1`?**
-This handles the case where `running_sum` itself equals `k` — meaning the subarray starts from index 0. Without `seen[0] = 1`, you'd miss every valid subarray that starts at the beginning!
-
----
-
-## 🗺️ Deep Dive: 2D Prefix Sum Explained Visually
-
-> **❓ Common Doubt:** *"Explain 2D array prefix sum to me. I'm finding it hard to grasp how to build it and query it."*
-
-In 1D, `prefix[i]` = sum of everything to the left of `i`.
-In 2D, `prefix[r][c]` = sum of the entire rectangle from the top-left corner `(0,0)` down to cell `(r-1, c-1)`. Think of it like water filling from the top-left corner of the grid into a box.
-
-### Step 1 — Building the 2D Prefix
-Original Matrix:
-```text
-1  2  3
-4  5  6
-7  8  9
-```
-
-`prefix[2][2]` is the sum of this shaded box:
-```text
-+--+--+
-|1 |2 |
-+--+--+
-|4 |5 |
-+--+--+
-= 1+2+4+5 = 12
-```
-
-We make a prefix table with an extra row and column of zeros (sentinels):
-```text
-     c=0  c=1  c=2  c=3
-r=0 [  0,   0,   0,   0 ]   ← sentinel row
-r=1 [  0,   1,   3,   6 ]
-r=2 [  0,   5,  12,  21 ]
-r=3 [  0,  12,  27,  45 ]
-```
-
-**The Formula to Build It:**
-How do you compute each cell without re-adding everything? Look at what we already know when filling `prefix[2][2]`:
-- `prefix[1][2] = 3` (top strip)
-- `prefix[2][1] = 5` (left strip)
-
-If we do `3 + 5 = 8`. But the answer is `12`. Why? Because cell `(0,0)` (the value 1) got counted in **both** strips. We added it twice.
-
-So: `prefix[2][2] = prefix[1][2] + prefix[2][1] - prefix[1][1] + nums[1][1]`
-= 3 + 5 - 1 + 5 = 12 ✓
-
-General Formula:
-`prefix[r][c] = nums[r-1][c-1] + prefix[r-1][c] + prefix[r][c-1] - prefix[r-1][c-1]`
-
-### Step 2 — Querying a Rectangle
-*"What's the sum of the bottom-right 2x2 block? (r1=1,c1=1) to (r2=2,c2=2)"*
-Values are `5+6+8+9 = 28`.
-
-Start with the full top-left rectangle ending at `(r2,c2)`: `prefix[3][3] = 45`.
-Remove what we don't want:
-- Remove top strip (above r1): `- prefix[1][3] = 6`
-- Remove left strip (left of c1): `- prefix[3][1] = 12`
-
-But again — the top-left corner got removed twice, so add it back:
-`+ prefix[1][1] = 1`
-
-`45 - 6 - 12 + 1 = 28` ✓
-
-### The One Mental Model to Remember
-- **Build:** `cell + top + left − corner` (corner was added twice)
-- **Query:** `full − top − left + corner` (corner was removed twice)
-
----
-
-## 🗂️ LeetCode Practice List (Grouped & Ordered)
-
-### 🟢 Tier 1 — Core Prefix Sum (Do these first)
-
-| # | Problem | Why |
-|---|---------|-----|
-| 1 | [Running Sum of 1D Array](https://leetcode.com/problems/running-sum-of-1d-array/) | Literally just building the prefix array. Warmup. |
-| 2 | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Build prefix once, answer range queries. The textbook problem. |
-| 3 | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/) | Left sum = right sum. Tests your range query thinking. |
-| 4 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Prefix and Suffix products variant. Classic O(1) space trick. |
-
-### 🟡 Tier 2 — Prefix Sum + HashMap (Do these second)
-
-| # | Problem | Why |
-|---|---------|-----|
-| 5 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | The most important one. prefix + hashmap, `seen[0]=1` trick. |
-| 6 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Modular prefix sum. Sum divisible by k, length ≥ 2. |
-| 7 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Modular prefix sum, count all valid subarrays. |
-| 8 | [Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs/) | Rearranges into prefix sum + hashmap pattern. Good pattern recognition test. |
-
-### 🔴 Tier 3 — 2D Prefix Sum (Do these last)
-
-| # | Problem | Why |
-|---|---------|-----|
-| 9 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | The textbook 2D prefix problem. Build table, answer rectangle queries. |
-| 10 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Apply 2D prefix query repeatedly across the matrix. |
-
----
-
-*Notes and problems will be added here over time.*
+| # | Problem | Difficulty | Sub-Pattern |
+|---|---------|------------|-------------|
+| 1 | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Easy | Core Pattern |
+| 2 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | Medium | Prefix Sum + Hashmap |
+| 3 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Medium | Prefix/Suffix Prod |
+| 4 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | Medium | 2D Prefix Sum |
+| 5 | [Pivot Index](https://leetcode.com/problems/find-pivot-index/) | Easy | Running Sum |
