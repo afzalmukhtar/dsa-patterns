@@ -69,44 +69,92 @@ i=4 (6): 6 > 3 -> pop(3), Res[3]=6
          Stack: [4] (val: 6)
 ```
 
-## 7. The Template & Generalized Rules
+## 7. The Generalised Rules for Monotonic Stack
 
-### The Core Template
+### Rule 1 — Recognise the problem
+If the problem asks **"for each element, find the nearest element to the left/right that is greater/smaller"** → Monotonic Stack.
+
+### Rule 2 — Decide the stack type
+- Looking for **GREATER** element → Maintain **DECREASING** stack (pop when `current > top`)
+- Looking for **SMALLER** element → Maintain **INCREASING** stack (pop when `current < top`)
+
+**Memory trick:** The stack always holds elements that have NOT yet been beaten. So if you're looking for something greater, only smaller elements survive in the stack — hence decreasing.
+
+### Rule 3 — Decide the direction
+- **Next** greater/smaller (to the RIGHT) → traverse **LEFT to RIGHT**
+- **Prev** greater/smaller (to the LEFT) → traverse **RIGHT to LEFT**
+
+### Rule 4 — The three-step loop. Always.
 ```python
-def solve(nums):
-    n = len(nums)
-    result = [-1] * n
-    stack = [] # Stores INDICES
+for i in range(n):
+    # STEP 1: Resolve — pop everything the current element beats
+    while stack and CONDITION(nums[i], nums[stack[-1]]):
+        idx = stack.pop()
+        result[idx] = WHAT_YOU_RECORD   # value? distance? area?
 
-    for i in range(n):
-        # 1. RESOLVE: Pop everything the current element "beats"
-        while stack and CONDITION(nums[i], nums[stack[-1]]):
-            idx = stack.pop()
-            result[idx] = WHAT_TO_RECORD
-            
-        # 2. ADD: Current element joins the "unresolved" list
-        stack.append(i)
-    return result
+    # STEP 2: Add — current element is now unresolved, push it
+    stack.append(i)
+
+# STEP 3: Cleanup — anything left in stack has no answer
+# (result already initialised to -1, so often nothing to do)
+```
+These three steps never change. Only two things vary per problem:
+1. The **CONDITION** (greater or smaller)
+2. The **WHAT_YOU_RECORD** (value, distance, area)
+
+### Rule 5 — Know what to record when you pop
+This is where problems differ from each other:
+- **"Next greater value"** → `result[idx] = nums[i]`
+- **"Days until warmer"** → `result[idx] = i - idx`
+- **"Largest rectangle"** → `result[idx] = height * width` (computed on pop)
+- **"Previous greater index"** → `result[idx] = stack[-1] if stack else -1`
+
+The pop moment is where the answer lives. Whatever the problem asks for — compute it right there.
+
+### Rule 6 — When to use a Deque instead of a Stack
+A deque (double-ended queue) comes in when the problem adds a window size constraint — meaning old elements need to be evicted from the front while new ones are added to the back.
+- **Stack** → "find nearest greater/smaller" (no window limit)
+- **Deque** → "find greatest/smallest within a window of size k"
+
+The deque stays monotonic the same way, but you also check:
+```python
+# Evict from FRONT if it's outside the window
+while deque and deque[0] < i - k + 1:
+    deque.popleft()
 ```
 
-### The Generalized Rulebook
-- **Rule 1 (Signal):** "Find nearest greater/smaller" -> Monotonic Stack.
-- **Rule 2 (Type):**
-  - Looking for **GREATER** -> **DECREASING** stack (pop when `curr > top`)
-  - Looking for **SMALLER** -> **INCREASING** stack (pop when `curr < top`)
-- **Rule 3 (Direction):**
-  - **Next** (Right) -> Traverse **L to R**
-  - **Previous** (Left) -> Traverse **R to L**
-- **Rule 4 (Recording):**
-  - "Next greater value" -> `res[idx] = nums[i]`
-  - "Distance" -> `res[idx] = i - idx`
-- **Rule 5 (Deque):** Use if there is a **window size constraint**. Evict from front if `deque[0] < i - k + 1`.
+## 8. The Full Decision Tree
+```text
+Problem involves "nearest greater/smaller"?
+            │
+            ▼
+      Which direction?
+      ┌─────┴──────┐
+    Right          Left
+  L→R loop       R→L loop
+      │
+      ▼
+  Greater or Smaller?
+  ┌────────┴────────┐
+Greater           Smaller
+Decreasing        Increasing
+stack             stack
+(pop when >)      (pop when <)
+      │
+      ▼
+  What to record on pop?
+  Value / Distance / Area / Index
+      │
+      ▼
+  Window constraint?
+  ┌────┴────┐
+  No       Yes
+Stack     Deque
+          (also evict from front)
+```
 
-## 8. Variations and Edge Cases
-- **Circular Array:** Loop twice (`for i in range(2*n)`) and use `i % n`.
-- **Duplicates:** Decide if "greater" includes "equal" (`>=` vs `>`).
-- **Stream:** If data arrives one-by-one, the stack naturally handles it.
-- **No Extra Space:** Usually not possible as the stack is essential for $O(n)$.
+**One-line version to memorise:**
+*Push indices. Pop when beaten. Record the answer at pop time. What survives in the stack is always monotone.*
 
 ## 9. Practice Problems
 
