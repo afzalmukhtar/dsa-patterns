@@ -81,6 +81,12 @@ dsa-patterns/
 
 ---
 
+## 🤖 AI Learning Assistant
+
+If you are using an AI coding agent or an LLM to help you learn and practice, provide it with the system instructions found in [`SYSTEM.md`](./SYSTEM.md). This prompt will instruct the AI to act as your personal DSA teacher, guiding you through the patterns systematically with visual explanations and preventing it from simply giving you the answers right away.
+
+---
+
 ## 🧭 How to Use This Repo
 
 - **Learning a new pattern?** → Open the folder's `README.md`.
