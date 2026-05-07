@@ -39,6 +39,14 @@ Look for these phrases in a problem:
 | **"most frequent element"** | Frequency map + max tracking |
 | **"subarray with sum = k"** | Prefix sum + HashMap |
 | **"any time $O(n^2)$ search feels wasteful"** | HashMap probably helps |
+| 1 | [Two Sum](./problems/1-two-sum.md) ([Sol](./problems/1-two-sum.py)) | TBD | Added from local |
+| 128 | [Longest Consecutive Sequence](./problems/128-longest-consecutive-sequence.md) ([Sol](./problems/128-longest-consecutive-sequence.py)) | TBD | Added from local |
+| 136 | [Single Number](./problems/136-single-number.md) ([Sol](./problems/136-single-number.py)) | TBD | Added from local |
+| 217 | [Contains Duplicate](./problems/217-contains-duplicate.md) ([Sol](./problems/217-contains-duplicate.py)) | TBD | Added from local |
+| 242 | [Valid Anagram](./problems/242-valid-anagram.md) ([Sol](./problems/242-valid-anagram.py)) | TBD | Added from local |
+| 347 | [Top K Frequent Elements](./problems/347-top-k-frequent-elements.md) ([Sol](./problems/347-top-k-frequent-elements.py)) | TBD | Added from local |
+| 49 | [Group Anagrams](./problems/49-group-anagrams.md) ([Sol](./problems/49-group-anagrams.py)) | TBD | Added from local |
+| 560 | [Subarray Sum Equals K](./problems/560-subarray-sum-equals-k.md) ([Sol](./problems/560-subarray-sum-equals-k.py)) | TBD | Added from local |
 
 **The core trigger:** You're doing a nested loop just to find or count something. HashMap collapses that inner loop to $O(1)$.
 

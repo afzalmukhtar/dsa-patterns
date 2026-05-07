@@ -90,3 +90,18 @@ def sliding_window_template(arr):
 | 4 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) | Medium | Variable (Max) |
 | 5 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) | Medium | Fixed (Freq Map) |
 | 6 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | Variable (Min/Target) |
+| 1004 | [Max Consecutive Ones Iii](./problems/1004-max-consecutive-ones-iii.md) ([Sol](./problems/1004-max-consecutive-ones-iii.py)) | TBD | Added from local |
+| 121 | [Best Time To Buy And Sell Stock](./problems/121-best-time-to-buy-and-sell-stock.md) ([Sol](./problems/121-best-time-to-buy-and-sell-stock.py)) | TBD | Added from local |
+| 1343 | [Number Of Sub Arrays Of Size K And Average Greater Than Or Equal To Threshold](./problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.md) ([Sol](./problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py)) | TBD | Added from local |
+| 1456 | [Maximum Number Of Vowels In A Substring Of Given Length](./problems/1456-maximum-number-of-vowels-in-a-substring-of-given-length.md) ([Sol](./problems/1456-maximum-number-of-vowels-in-a-substring-of-given-length.py)) | TBD | Added from local |
+| 1493 | [Longest Subarray Of 1S After Deleting One Element](./problems/1493-longest-subarray-of-1s-after-deleting-one-element.md) ([Sol](./problems/1493-longest-subarray-of-1s-after-deleting-one-element.py)) | TBD | Added from local |
+| 1876 | [Substrings Of Size Three With Distinct Characters](./problems/1876-substrings-of-size-three-with-distinct-characters.md) ([Sol](./problems/1876-substrings-of-size-three-with-distinct-characters.py)) | TBD | Added from local |
+| 209 | [Minimum Size Subarray Sum](./problems/209-minimum-size-subarray-sum.md) ([Sol](./problems/209-minimum-size-subarray-sum.py)) | TBD | Added from local |
+| 2461 | [Maximum Sum Of Distinct Subarrays With Length K](./problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.md) ([Sol](./problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.py)) | TBD | Added from local |
+| 3 | [Longest Substring Without Repeating Characters](./problems/3-longest-substring-without-repeating-characters.md) ([Sol](./problems/3-longest-substring-without-repeating-characters.py)) | TBD | Added from local |
+| 438 | [Find All Anagrams In A String](./problems/438-find-all-anagrams-in-a-string.md) ([Sol](./problems/438-find-all-anagrams-in-a-string.py)) | TBD | Added from local |
+| 567 | [Permutation In String](./problems/567-permutation-in-string.md) ([Sol](./problems/567-permutation-in-string.py)) | TBD | Added from local |
+| 643 | [Maximum Average Subarray I](./problems/643-maximum-average-subarray-i.md) ([Sol](./problems/643-maximum-average-subarray-i.py)) | TBD | Added from local |
+| 713 | [Subarray Product Less Than K](./problems/713-subarray-product-less-than-k.md) ([Sol](./problems/713-subarray-product-less-than-k.py)) | TBD | Added from local |
+| 76 | [Minimum Window Substring](./problems/76-minimum-window-substring.md) ([Sol](./problems/76-minimum-window-substring.py)) | TBD | Added from local |
+| 904 | [Fruit Into Baskets](./problems/904-fruit-into-baskets.md) ([Sol](./problems/904-fruit-into-baskets.py)) | TBD | Added from local |

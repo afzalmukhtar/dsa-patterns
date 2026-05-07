@@ -17,6 +17,11 @@ Binary Search is a way to find something by repeatedly cutting your search space
 | **"Return the index of..."** | Searching for a specific position. |
 | **$O(\log n)$ expected** | Dead giveaway for binary search. |
 | **"Search space has a yes/no boundary"** | Splitting at the boundary point. |
+| 1351 | [Count Negative Numbers In A Sorted Matrix](./problems/1351-count-negative-numbers-in-a-sorted-matrix.md) ([Sol](./problems/1351-count-negative-numbers-in-a-sorted-matrix.py)) | TBD | Added from local |
+| 35 | [Search Insert Position](./problems/35-search-insert-position.md) ([Sol](./problems/35-search-insert-position.py)) | TBD | Added from local |
+| 374 | [Guess Number Higher Or Lower](./problems/374-guess-number-higher-or-lower.md) ([Sol](./problems/374-guess-number-higher-or-lower.py)) | TBD | Added from local |
+| 69 | [Sqrtx](./problems/69-sqrtx.md) ([Sol](./problems/69-sqrtx.py)) | TBD | Added from local |
+| 704 | [Binary Search](./problems/704-binary-search.md) ([Sol](./problems/704-binary-search.py)) | TBD | Added from local |
 
 ## 3. The Mental Model
 Imagine guessing a number between 1 and 100. Your friend says "higher" or "lower." You don't start at 1; you guess 50. If they say "higher," you've eliminated 50 numbers in one move.

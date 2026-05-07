@@ -88,3 +88,7 @@ def fast_slow_template(head):
 | 3 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium | Cycle Entrance |
 | 4 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium | Array Cycle |
 | 5 | [Happy Number](https://leetcode.com/problems/happy-number/) | Easy | Logical Cycle |
+| 141 | [Linked List Cycle](./problems/141-linked-list-cycle.md) ([Sol](./problems/141-linked-list-cycle.py)) | TBD | Added from local |
+| 142 | [Linked List Cycle Ii](./problems/142-linked-list-cycle-ii.md) ([Sol](./problems/142-linked-list-cycle-ii.py)) | TBD | Added from local |
+| 287 | [Find The Duplicate Number](./problems/287-find-the-duplicate-number.md) ([Sol](./problems/287-find-the-duplicate-number.py)) | TBD | Added from local |
+| 876 | [Middle Of The Linked List](./problems/876-middle-of-the-linked-list.md) ([Sol](./problems/876-middle-of-the-linked-list.py)) | TBD | Added from local |
