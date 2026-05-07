@@ -118,7 +118,7 @@ No external dependencies. Just pure problem-solving. 🧠
 | Greedy | ⏳ Not Started | 0 |
 | Intervals | ⏳ Not Started | 0 |
 | Heap / Priority Queue | ⏳ Not Started | 0 |
-| Graph Patterns | ⏳ Not Started | 0 |
+| Graph Patterns | 🔄 In Progress | 0 |
 | Trie | ⏳ Not Started | 0 |
 | Bit Manipulation | ⏳ Not Started | 0 |
 
