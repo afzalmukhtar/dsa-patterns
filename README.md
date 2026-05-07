@@ -110,7 +110,7 @@ No external dependencies. Just pure problem-solving. 🧠
 | Binary Search | 🔄 In Progress | 5 |
 | Fast Slow Pointers | 🔄 In Progress | 4 |
 | Prefix Sum | 🔄 In Progress | 1 |
-| HashMap / Frequency Map | 🔄 In Progress | 7 |
+| HashMap / Frequency Map | 🔄 In Progress | 8 |
 | Monotonic Stack | 🔄 In Progress | 6 |
 | BFS / Level Order | 🔄 In Progress | 9 |
 | DFS / Backtracking | 🔄 In Progress | 4 |
