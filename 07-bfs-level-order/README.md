@@ -1,13 +1,30 @@
 # Pattern #8: BFS / Level Order Traversal
 
-> **Status:** 🔄 In Progress | **Solved:** 6
+> **Status:** 🔄 In Progress | **Solved:** 9
 
 ---
 
 ## 1. What is it?
 **BFS (Breadth-First Search)** is a way of exploring a tree or graph layer by layer. You visit everything 1 step away first, then everything 2 steps away, and so on. It’s like searching in "ripples."
 
-## 2. When do I use it?
+## 2. Meta-Principle: Where do I start? (Selecting Sources)
+The most common confusion with BFS (especially Multi-Source BFS) is: **"Should I start from the 0s or the 1s?"**
+
+The mental rule to always know where to start is:
+> **The source is whatever you already know the answer for.**
+
+| Problem | Known Answer (Sources) | Unknown Answer (To be filled) |
+| :--- | :--- | :--- |
+| **01 Matrix** | Cells with `0` (distance is `0`) | Cells with `1` (what is their distance?) |
+| **Rotting Oranges** | Rotten oranges (time is `0`) | Fresh oranges (when do they rot?) |
+| **Map of Highest Peak** | Water cells (height is `0`) | Land cells (what is their height?) |
+
+The pattern is always the same:
+1. Identify the cells that already have a definite answer of `0` (distance, time, or height).
+2. Seed these cells into the `queue` at the beginning.
+3. Let BFS spread outward to fill in the unknown cells.
+
+## 3. When do I use it?
 Look for these signals:
 - **Shortest Path:** In an **unweighted** graph or grid.
 - **Level Order:** "Process nodes layer by layer."
@@ -15,7 +32,7 @@ Look for these signals:
 - **Nearest/Closest:** "Find the distance to the nearest X."
 - **Trigger:** "Find the shortest path in an unweighted graph."
 
-## 3. The Mental Model
+## 4. The Mental Model
 Imagine dropping a stone in a pond. The ripples expand outward in all directions simultaneously, one layer at a time. BFS uses a **Queue (FIFO)** to maintain the "current ripple front."
 
 ```text
@@ -96,10 +113,12 @@ def multi_source_bfs(sources):
 
 | # | Problem | Difficulty | Link |
 |---|---------|------------|------|
-| 1 | Binary Tree Level Order Traversal | Medium | [LC 102](https://leetcode.com/problems/binary-tree-level-order-traversal/) |
+| 1 | Binary Tree Level Order Traversal | Medium | [./problems/102-binary-tree-level-order-traversal.md](./problems/102-binary-tree-level-order-traversal.md) ([Sol](./problems/102-binary-tree-level-order-traversal.py)) |
 | 2 | Rotting Oranges | Medium | [./problems/994-rotting-oranges.md](./problems/994-rotting-oranges.md) ([Sol](./problems/994-rotting-oranges.py)) |
-| 3 | 01 Matrix | Medium | [LC 542](https://leetcode.com/problems/01-matrix/) |
-| 4 | Minimum Genetic Mutation | Medium | [LC 433](https://leetcode.com/problems/minimum-genetic-mutation/) |
-| 5 | Map of Highest Peak | Medium | [LC 1765](https://leetcode.com/problems/map-of-highest-peak/) |
-| 6 | Word Ladder | Hard | [LC 127](https://leetcode.com/problems/word-ladder/) |
-| 7 | Bus Routes | Hard | [LC 815](https://leetcode.com/problems/bus-routes/) |
+| 3 | 01 Matrix | Medium | [./problems/542-01-matrix.md](./problems/542-01-matrix.md) ([Sol](./problems/542-01-matrix.py)) |
+| 4 | Minimum Genetic Mutation | Medium | [./problems/433-minimum-genetic-mutation.md](./problems/433-minimum-genetic-mutation.md) ([Sol](./problems/433-minimum-genetic-mutation.py)) |
+| 5 | Binary Tree Right Side View | Medium | [./problems/199-binary-tree-right-side-view.md](./problems/199-binary-tree-right-side-view.md) ([Sol](./problems/199-binary-tree-right-side-view.py)) |
+| 6 | Word Ladder | Hard | [./problems/127-word-ladder.md](./problems/127-word-ladder.md) ([Sol](./problems/127-word-ladder.py)) |
+| 7 | Average of Levels in Binary Tree | Easy | [./problems/637-average-of-levels-in-binary-tree.md](./problems/637-average-of-levels-in-binary-tree.md) ([Sol](./problems/637-average-of-levels-in-binary-tree.py)) |
+| 8 | Binary Tree Zigzag Level Order Traversal | Medium | [./problems/103-binary-tree-zigzag-level-order-traversal.md](./problems/103-binary-tree-zigzag-level-order-traversal.md) ([Sol](./problems/103-binary-tree-zigzag-level-order-traversal.py)) |
+| 9 | Map of Highest Peak | Medium | [./problems/1765-map-of-highest-peak.md](./problems/1765-map-of-highest-peak.md) ([Sol](./problems/1765-map-of-highest-peak.py)) |
