@@ -109,12 +109,12 @@ No external dependencies. Just pure problem-solving. 🧠
 | Sliding Window | 🔄 In Progress | 15 |
 | Binary Search | ⏳ Not Started | 0 |
 | Fast Slow Pointers | 🔄 In Progress | 4 |
-| Prefix Sum | ⏳ Not Started | 0 |
-| HashMap / Frequency Map | 🔄 In Progress | 4 |
-| Monotonic Stack | ⏳ Not Started | 0 |
-| BFS / Level Order | ⏳ Not Started | 0 |
-| DFS / Backtracking | ⏳ Not Started | 0 |
-| Dynamic Programming | ⏳ Not Started | 0 |
+| Prefix Sum | 🔄 In Progress | 1 |
+| HashMap / Frequency Map | 🔄 In Progress | 7 |
+| Monotonic Stack | 🔄 In Progress | 6 |
+| BFS / Level Order | 🔄 In Progress | 9 |
+| DFS / Backtracking | 🔄 In Progress | 4 |
+| Dynamic Programming | 🔄 In Progress | 1 |
 | Greedy | ⏳ Not Started | 0 |
 | Intervals | ⏳ Not Started | 0 |
 | Heap / Priority Queue | ⏳ Not Started | 0 |
