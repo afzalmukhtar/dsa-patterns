@@ -107,7 +107,7 @@ No external dependencies. Just pure problem-solving. 🧠
 |---------|--------|----------------|
 | Two Pointers | 🔄 In Progress | 16 |
 | Sliding Window | 🔄 In Progress | 15 |
-| Binary Search | ⏳ Not Started | 0 |
+| Binary Search | 🔄 In Progress | 5 |
 | Fast Slow Pointers | 🔄 In Progress | 4 |
 | Prefix Sum | 🔄 In Progress | 1 |
 | HashMap / Frequency Map | 🔄 In Progress | 7 |
