@@ -19,6 +19,7 @@ The goal isn't to memorize solutions. It's to **recognize patterns from first pr
 We have intricately mapped the famous **Blind 75** and **NeetCode 150** problem lists into these 15 patterns, complete with frequent company tags (Meta, Amazon, Google, etc.). Check out the mappings to prioritize your practice:
 - [🎯 NeetCode 150 Pattern Mapping](./practice/neetcode150.md)
 - [🎯 Blind 75 Pattern Mapping](./practice/blind75.md)
+- [📑 Master DSA Recap & Code Index](./RECAP.md)
 
 ---
 
