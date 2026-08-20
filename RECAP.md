@@ -102,6 +102,7 @@ WINDOW     WINDOW       (or Sort 1st)  (Complement)
 > **Pattern Folder:** [📂 `01-two-pointers`](./01-two-pointers/README.md) | **Implemented Solutions:** 16 Problems
 
 ### 💡 Mental Model & Intuition
+
 Imagine two runners on a track.
 1. **Opposite-End Convergence (`L = 0`, `R = n - 1`)**: Like squeezing an accordion. Because the data is sorted, `nums[L] + nums[R]` gives you a **compass**: if the sum is too large, decrement `R`; if too small, increment `L`. Every step eliminates an entire row/column of redundant pairs without checking them.
 2. **Same-Direction / Fast-Slow Read-Write (`slow = 0`, `fast = 0`)**: `fast` acts as a scout scanning the array, while `slow` acts as a builder writing only valid/filtered elements in-place.
@@ -210,21 +211,21 @@ def sort_colors(nums: list[int]) -> None:
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
 | 11 | [`📄 LC 11: Container With Most Water`](./01-two-pointers/problems/11-container-with-most-water.md) | [`💻 11-container-with-most-water.py`](./01-two-pointers/problems/11-container-with-most-water.py) | Greedy Converging Pointers | Move the shorter wall inward; moving taller wall only shrinks width without height gain | $O(n)$ | $O(1)$ |
-| 125 | [`📄 LC 125: Valid Palindrome`](./01-two-pointers/problems/125-valid-palindrome.md) | [`💻 125-valid-palindrome.py`](./01-two-pointers/problems/125-valid-palindrome.py) | Opposite-Ends Convergence | Skip non-alphanumeric chars; check s[L].lower() == s[R].lower() | $O(n)$ | $O(1)$ |
-| 15 | [`📄 LC 15: 3Sum`](./01-two-pointers/problems/15-3sum.md) | [`💻 15-3sum.py`](./01-two-pointers/problems/15-3sum.py) | Fixed Element + 2P | Sort array first; fix index i, run 2-pointer on remainder; skip duplicate elements at all levels | $O(n^2)$ | $O(1)$ |
-| 16 | [`📄 LC 16: 3Sum Closest`](./01-two-pointers/problems/16-3sum-closest.md) | [`💻 16-3sum-closest.py`](./01-two-pointers/problems/16-3sum-closest.py) | Fixed Element + 2P | Track minimum abs(total - target) while moving converging pointers toward target | $O(n^2)$ | $O(1)$ |
-| 167 | [`📄 LC 167: Two Sum II - Input Array Is Sorted`](./01-two-pointers/problems/167-two-sum-ii-input-array-is-sorted.md) | [`💻 167-two-sum-ii-input-array-is-sorted.py`](./01-two-pointers/problems/167-two-sum-ii-input-array-is-sorted.py) | Opposite-Ends Convergence | Sum too big -> R--; sum too small -> L++ | $O(n)$ | $O(1)$ |
+| 125 | [`📄 LC 125: Valid Palindrome`](./01-two-pointers/problems/125-valid-palindrome.md) | [`💻 125-valid-palindrome.py`](./01-two-pointers/problems/125-valid-palindrome.py) | Opposite-Ends Convergence | Skip non-alphanumeric chars; check `s[L].lower() == s[R].lower()` | $O(n)$ | $O(1)$ |
+| 15 | [`📄 LC 15: 3Sum`](./01-two-pointers/problems/15-3sum.md) | [`💻 15-3sum.py`](./01-two-pointers/problems/15-3sum.py) | Fixed Element + 2P | Sort array first; fix index `i`, run 2-pointer on remainder; skip duplicate elements at all levels | $O(n^2)$ | $O(1)$ |
+| 16 | [`📄 LC 16: 3Sum Closest`](./01-two-pointers/problems/16-3sum-closest.md) | [`💻 16-3sum-closest.py`](./01-two-pointers/problems/16-3sum-closest.py) | Fixed Element + 2P | Track minimum `abs(total - target)` while moving converging pointers toward target | $O(n^2)$ | $O(1)$ |
+| 167 | [`📄 LC 167: Two Sum II - Input Array Is Sorted`](./01-two-pointers/problems/167-two-sum-ii-input-array-is-sorted.md) | [`💻 167-two-sum-ii-input-array-is-sorted.py`](./01-two-pointers/problems/167-two-sum-ii-input-array-is-sorted.py) | Opposite-Ends Convergence | Sum too big $\implies R--$; sum too small $\implies L++$ | $O(n)$ | $O(1)$ |
 | 18 | [`📄 LC 18: 4Sum`](./01-two-pointers/problems/18-4sum.md) | [`💻 18-4sum.py`](./01-two-pointers/problems/18-4sum.py) | 2 Fixed Elements + 2P | Two nested loops + 2-pointer scan; deduplicate at all four pointer levels | $O(n^3)$ | $O(1)$ |
-| 19 | [`📄 LC 19: Remove Nth Node From End of List`](./01-two-pointers/problems/19-remove-nth-node-from-end-of-list.md) | [`💻 19-remove-nth-node-from-end-of-list.py`](./01-two-pointers/problems/19-remove-nth-node-from-end-of-list.py) | Fixed-Gap Pointers | Advance fast N+1 steps ahead with dummy head, then advance both until fast is None | $O(n)$ | $O(1)$ |
-| 26 | [`📄 LC 26: Remove Duplicates from Sorted Array`](./01-two-pointers/problems/26-remove-duplicates-from-sorted-array.md) | [`💻 26-remove-duplicates-from-sorted-array.py`](./01-two-pointers/problems/26-remove-duplicates-from-sorted-array.py) | Same-Direction Read/Write | Write to slow only when nums[fast] != nums[slow] | $O(n)$ | $O(1)$ |
-| 27 | [`📄 LC 27: Remove Element`](./01-two-pointers/problems/27-remove-element.md) | [`💻 27-remove-element.py`](./01-two-pointers/problems/27-remove-element.py) | Same-Direction Read/Write | If nums[fast] != val, write to nums[slow] and increment slow | $O(n)$ | $O(1)$ |
+| 19 | [`📄 LC 19: Remove Nth Node From End of List`](./01-two-pointers/problems/19-remove-nth-node-from-end-of-list.md) | [`💻 19-remove-nth-node-from-end-of-list.py`](./01-two-pointers/problems/19-remove-nth-node-from-end-of-list.py) | Fixed-Gap Pointers | Advance fast $N+1$ steps ahead with dummy head, then advance both until fast is None | $O(n)$ | $O(1)$ |
+| 26 | [`📄 LC 26: Remove Duplicates from Sorted Array`](./01-two-pointers/problems/26-remove-duplicates-from-sorted-array.md) | [`💻 26-remove-duplicates-from-sorted-array.py`](./01-two-pointers/problems/26-remove-duplicates-from-sorted-array.py) | Same-Direction Read/Write | Write to slow only when `nums[fast] != nums[slow]` | $O(n)$ | $O(1)$ |
+| 27 | [`📄 LC 27: Remove Element`](./01-two-pointers/problems/27-remove-element.md) | [`💻 27-remove-element.py`](./01-two-pointers/problems/27-remove-element.py) | Same-Direction Read/Write | If `nums[fast] != val`, write to `nums[slow]` and increment slow | $O(n)$ | $O(1)$ |
 | 283 | [`📄 LC 283: Move Zeroes`](./01-two-pointers/problems/283-move-zeroes.md) | [`💻 283-move-zeroes.py`](./01-two-pointers/problems/283-move-zeroes.py) | Same-Direction Swap | Swap non-zero at fast with slow, increment slow | $O(n)$ | $O(1)$ |
-| 344 | [`📄 LC 344: Reverse String`](./01-two-pointers/problems/344-reverse-string.md) | [`💻 344-reverse-string.py`](./01-two-pointers/problems/344-reverse-string.py) | Opposite-Ends Swap | Swap s[L] and s[R], move inward until L >= R | $O(n)$ | $O(1)$ |
-| 345 | [`📄 LC 345: Reverse Vowels of a String`](./01-two-pointers/problems/345-reverse-vowels-of-a-string.md) | [`💻 345-reverse-vowels-of-a-string.py`](./01-two-pointers/problems/345-reverse-vowels-of-a-string.py) | Opposite-Ends Vowel Search | Advance L and R until both hit vowels, then swap | $O(n)$ | $O(n)$ |
-| 42 | [`📄 LC 42: Trapping Rain Water`](./01-two-pointers/problems/42-trapping-rain-water.md) | [`💻 42-trapping-rain-water.py`](./01-two-pointers/problems/42-trapping-rain-water.py) | Converging Max-Track | Water trapped is bounded by min(max_L, max_R) - height[i]; process smaller side | $O(n)$ | $O(1)$ |
-| 680 | [`📄 LC 680: Valid Palindrome II`](./01-two-pointers/problems/680-valid-palindrome-ii.md) | [`💻 680-valid-palindrome-ii.py`](./01-two-pointers/problems/680-valid-palindrome-ii.py) | Branching Palindrome | On first mismatch s[L] != s[R], check if either s[L+1..R] or s[L..R-1] is palindrome | $O(n)$ | $O(1)$ |
-| 75 | [`📄 LC 75: Sort Colors`](./01-two-pointers/problems/75-sort-colors.md) | [`💻 75-sort-colors.py`](./01-two-pointers/problems/75-sort-colors.py) | Dutch National Flag 3-Way | Maintain [0..low-1] as 0s, [high+1..n-1] as 2s, scan with mid | $O(n)$ | $O(1)$ |
-| 80 | [`📄 LC 80: Remove Duplicates from Sorted Array II`](./01-two-pointers/problems/80-remove-duplicates-from-sorted-array-ii.md) | [`💻 80-remove-duplicates-from-sorted-array-ii.py`](./01-two-pointers/problems/80-remove-duplicates-from-sorted-array-ii.py) | Same-Direction K-Lookback | Allow up to 2 duplicates by checking nums[fast] != nums[slow - 2] | $O(n)$ | $O(1)$ |
+| 344 | [`📄 LC 344: Reverse String`](./01-two-pointers/problems/344-reverse-string.md) | [`💻 344-reverse-string.py`](./01-two-pointers/problems/344-reverse-string.py) | Opposite-Ends Swap | Swap `s[L]` and `s[R]`, move inward until $L \ge R$ | $O(n)$ | $O(1)$ |
+| 345 | [`📄 LC 345: Reverse Vowels of a String`](./01-two-pointers/problems/345-reverse-vowels-of-a-string.md) | [`💻 345-reverse-vowels-of-a-string.py`](./01-two-pointers/problems/345-reverse-vowels-of-a-string.py) | Opposite-Ends Vowel Search | Advance $L$ and $R$ until both hit vowels, then swap | $O(n)$ | $O(n)$ |
+| 42 | [`📄 LC 42: Trapping Rain Water`](./01-two-pointers/problems/42-trapping-rain-water.md) | [`💻 42-trapping-rain-water.py`](./01-two-pointers/problems/42-trapping-rain-water.py) | Converging Max-Track | Water trapped is bounded by `min(max_L, max_R) - height[i]`; process smaller side | $O(n)$ | $O(1)$ |
+| 680 | [`📄 LC 680: Valid Palindrome II`](./01-two-pointers/problems/680-valid-palindrome-ii.md) | [`💻 680-valid-palindrome-ii.py`](./01-two-pointers/problems/680-valid-palindrome-ii.py) | Branching Palindrome | On first mismatch `s[L] != s[R]`, check if either `s[L+1..R]` or `s[L..R-1]` is palindrome | $O(n)$ | $O(1)$ |
+| 75 | [`📄 LC 75: Sort Colors`](./01-two-pointers/problems/75-sort-colors.md) | [`💻 75-sort-colors.py`](./01-two-pointers/problems/75-sort-colors.py) | Dutch National Flag 3-Way | Maintain `[0..low-1]` as 0s, `[high+1..n-1]` as 2s, scan with mid | $O(n)$ | $O(1)$ |
+| 80 | [`📄 LC 80: Remove Duplicates from Sorted Array II`](./01-two-pointers/problems/80-remove-duplicates-from-sorted-array-ii.md) | [`💻 80-remove-duplicates-from-sorted-array-ii.py`](./01-two-pointers/problems/80-remove-duplicates-from-sorted-array-ii.py) | Same-Direction K-Lookback | Allow up to 2 duplicates by checking `nums[fast] != nums[slow - 2]` | $O(n)$ | $O(1)$ |
 
 ---
 
@@ -233,11 +234,12 @@ def sort_colors(nums: list[int]) -> None:
 > **Pattern Folder:** [📂 `02-sliding-window`](./02-sliding-window/README.md) | **Implemented Solutions:** 15 Problems
 
 ### 💡 Mental Model & Intuition
+
 Think of looking at scenery through a camera viewfinder sliding over a panorama.
 - **Fixed Window ($k$)**: The window frame is locked to width $k$. As it moves 1 unit right, exactly **one element leaves on the left (`nums[i-k]`)** and **one element enters on the right (`nums[i]`)**. Running stats update in $O(1)$ rather than recalculating all $k$ elements ($O(k)$).
 - **Dynamic Variable Window**:
   - *Expanding (`R` moves right)*: Greedily add elements to satisfy the condition or explore bigger windows.
-  - *Shrinking (`L` moves right)*: When a constraint is broken (e.g., > $k$ zeros, duplicate char, sum $\\ge$ target), shrink the left side until the window is valid again.
+  - *Shrinking (`L` moves right)*: When a constraint is broken (e.g., > $k$ zeros, duplicate char, sum $\ge$ target), shrink the left side until the window is valid again.
 
 ```text
 Fixed Window (k = 3):
@@ -246,7 +248,7 @@ Fixed Window (k = 3):
      [1,  5,  1]          -> sum = 8 - 2 + 1 = 7 (O(1) update!)
 
 Variable Window (Longest Substring Without Repeating Characters):
-\" a   b   c   a   b   c   b   b \"
+" a   b   c   a   b   c   b   b "
  [a   b   c]                         len = 3, state = {a, b, c}
  [a   b   c   a]                     'a' duplicated! Shrink L past first 'a'
      [b   c   a]                     len = 3, valid again
@@ -354,20 +356,20 @@ def min_window(s: str, t: str) -> str:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 1004 | [`📄 LC 1004: Max Consecutive Ones III`](./02-sliding-window/problems/1004-max-consecutive-ones-iii.md) | [`💻 1004-max-consecutive-ones-iii.py`](./02-sliding-window/problems/1004-max-consecutive-ones-iii.py) | Variable Longest Window | Allow at most k zeros in window; shrink L when zeros count > k | $O(n)$ | $O(1)$ |
-| 121 | [`📄 LC 121: Best Time to Buy and Sell Stock`](./02-sliding-window/problems/121-best-time-to-buy-and-sell-stock.md) | [`💻 121-best-time-to-buy-and-sell-stock.py`](./02-sliding-window/problems/121-best-time-to-buy-and-sell-stock.py) | Dynamic Low Tracker | If price[R] < price[L], reset buy day L = R; else calculate profit | $O(n)$ | $O(1)$ |
-| 1343 | [`📄 LC 1343: Number of Sub-arrays of Size K and Avg >= Threshold`](./02-sliding-window/problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.md) | [`💻 1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py`](./02-sliding-window/problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py) | Fixed Window (k) | Maintain sum over size k; check win_sum >= k * threshold | $O(n)$ | $O(1)$ |
+| 1004 | [`📄 LC 1004: Max Consecutive Ones III`](./02-sliding-window/problems/1004-max-consecutive-ones-iii.md) | [`💻 1004-max-consecutive-ones-iii.py`](./02-sliding-window/problems/1004-max-consecutive-ones-iii.py) | Variable Longest Window | Allow at most $k$ zeros in window; shrink $L$ when zeros count $> k$ | $O(n)$ | $O(1)$ |
+| 121 | [`📄 LC 121: Best Time to Buy and Sell Stock`](./02-sliding-window/problems/121-best-time-to-buy-and-sell-stock.md) | [`💻 121-best-time-to-buy-and-sell-stock.py`](./02-sliding-window/problems/121-best-time-to-buy-and-sell-stock.py) | Dynamic Low Tracker | If `price[R] < price[L]`, reset buy day `L = R`; else calculate profit | $O(n)$ | $O(1)$ |
+| 1343 | [`📄 LC 1343: Number of Sub-arrays of Size K and Avg >= Threshold`](./02-sliding-window/problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.md) | [`💻 1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py`](./02-sliding-window/problems/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py) | Fixed Window (k) | Maintain sum over size $k$; check `win_sum >= k * threshold` | $O(n)$ | $O(1)$ |
 | 1456 | [`📄 LC 1456: Maximum Number of Vowels in Substring of Length K`](./02-sliding-window/problems/1456-maximum-number-of-vowels-in-a-substring-of-given-length.md) | [`💻 1456-maximum-number-of-vowels-in-a-substring-of-given-length.py`](./02-sliding-window/problems/1456-maximum-number-of-vowels-in-a-substring-of-given-length.py) | Fixed Window (k) | Add 1 if incoming char is vowel; subtract 1 if outgoing char is vowel | $O(n)$ | $O(1)$ |
-| 1493 | [`📄 LC 1493: Longest Subarray of 1s After Deleting One Element`](./02-sliding-window/problems/1493-longest-subarray-of-1s-after-deleting-one-element.md) | [`💻 1493-longest-subarray-of-1s-after-deleting-one-element.py`](./02-sliding-window/problems/1493-longest-subarray-of-1s-after-deleting-one-element.py) | Variable Longest Window | Window can contain at most 1 zero; answer is max(R - L) (implicitly deleted) | $O(n)$ | $O(1)$ |
-| 1876 | [`📄 LC 1876: Substrings of Size Three with Distinct Characters`](./02-sliding-window/problems/1876-substrings-of-size-three-with-distinct-characters.md) | [`💻 1876-substrings-of-size-three-with-distinct-characters.py`](./02-sliding-window/problems/1876-substrings-of-size-three-with-distinct-characters.py) | Fixed Window (k=3) | Check if s[i] != s[i+1] and s[i] != s[i+2] and s[i+1] != s[i+2] | $O(n)$ | $O(1)$ |
-| 209 | [`📄 LC 209: Minimum Size Subarray Sum`](./02-sliding-window/problems/209-minimum-size-subarray-sum.md) | [`💻 209-minimum-size-subarray-sum.py`](./02-sliding-window/problems/209-minimum-size-subarray-sum.py) | Variable Shortest Window | Expand R until sum >= target; shrink L while recording minimum length | $O(n)$ | $O(1)$ |
-| 2461 | [`📄 LC 2461: Maximum Sum of Distinct Subarrays With Length K`](./02-sliding-window/problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.md) | [`💻 2461-maximum-sum-of-distinct-subarrays-with-length-k.py`](./02-sliding-window/problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.py) | Fixed Window + Set/Map | Fixed size k window; valid only when len(freq_map) == k | $O(n)$ | $O(k)$ |
-| 3 | [`📄 LC 3: Longest Substring Without Repeating Characters`](./02-sliding-window/problems/3-longest-substring-without-repeating-characters.md) | [`💻 3-longest-substring-without-repeating-characters.py`](./02-sliding-window/problems/3-longest-substring-without-repeating-characters.py) | Variable Longest Window | Map stores last seen index; jump L = max(L, last[c] + 1) | $O(n)$ | $O(min(n, m))$ |
+| 1493 | [`📄 LC 1493: Longest Subarray of 1s After Deleting One Element`](./02-sliding-window/problems/1493-longest-subarray-of-1s-after-deleting-one-element.md) | [`💻 1493-longest-subarray-of-1s-after-deleting-one-element.py`](./02-sliding-window/problems/1493-longest-subarray-of-1s-after-deleting-one-element.py) | Variable Longest Window | Window can contain at most 1 zero; answer is `max(R - L)` (implicitly deleted) | $O(n)$ | $O(1)$ |
+| 1876 | [`📄 LC 1876: Substrings of Size Three with Distinct Characters`](./02-sliding-window/problems/1876-substrings-of-size-three-with-distinct-characters.md) | [`💻 1876-substrings-of-size-three-with-distinct-characters.py`](./02-sliding-window/problems/1876-substrings-of-size-three-with-distinct-characters.py) | Fixed Window (k=3) | Check if `s[i] != s[i+1] and s[i] != s[i+2] and s[i+1] != s[i+2]` | $O(n)$ | $O(1)$ |
+| 209 | [`📄 LC 209: Minimum Size Subarray Sum`](./02-sliding-window/problems/209-minimum-size-subarray-sum.md) | [`💻 209-minimum-size-subarray-sum.py`](./02-sliding-window/problems/209-minimum-size-subarray-sum.py) | Variable Shortest Window | Expand $R$ until sum $\ge \text{target}$; shrink $L$ while recording minimum length | $O(n)$ | $O(1)$ |
+| 2461 | [`📄 LC 2461: Maximum Sum of Distinct Subarrays With Length K`](./02-sliding-window/problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.md) | [`💻 2461-maximum-sum-of-distinct-subarrays-with-length-k.py`](./02-sliding-window/problems/2461-maximum-sum-of-distinct-subarrays-with-length-k.py) | Fixed Window + Set/Map | Fixed size $k$ window; valid only when `len(freq_map) == k` | $O(n)$ | $O(k)$ |
+| 3 | [`📄 LC 3: Longest Substring Without Repeating Characters`](./02-sliding-window/problems/3-longest-substring-without-repeating-characters.md) | [`💻 3-longest-substring-without-repeating-characters.py`](./02-sliding-window/problems/3-longest-substring-without-repeating-characters.py) | Variable Longest Window | Map stores last seen index; jump $L = \max(L, \text{last}[c] + 1)$ | $O(n)$ | $O(\min(n, m))$ |
 | 438 | [`📄 LC 438: Find All Anagrams in a String`](./02-sliding-window/problems/438-find-all-anagrams-in-a-string.md) | [`💻 438-find-all-anagrams-in-a-string.py`](./02-sliding-window/problems/438-find-all-anagrams-in-a-string.py) | Fixed Frequency Match | Match array of size 26; compare window freq with pattern freq | $O(n)$ | $O(1)$ |
 | 567 | [`📄 LC 567: Permutation in String`](./02-sliding-window/problems/567-permutation-in-string.md) | [`💻 567-permutation-in-string.py`](./02-sliding-window/problems/567-permutation-in-string.py) | Fixed Frequency Match | Maintain count of 26-char matches; return True if matches == 26 | $O(n)$ | $O(1)$ |
-| 643 | [`📄 LC 643: Maximum Average Subarray I`](./02-sliding-window/problems/643-maximum-average-subarray-i.md) | [`💻 643-maximum-average-subarray-i.py`](./02-sliding-window/problems/643-maximum-average-subarray-i.py) | Fixed Window (k) | Keep running sum for k elements; return max_sum / k | $O(n)$ | $O(1)$ |
-| 713 | [`📄 LC 713: Subarray Product Less Than K`](./02-sliding-window/problems/713-subarray-product-less-than-k.md) | [`💻 713-subarray-product-less-than-k.py`](./02-sliding-window/problems/713-subarray-product-less-than-k.py) | Variable Subarray Count | For each R, divide by nums[L] while product >= k; add R - L + 1 | $O(n)$ | $O(1)$ |
-| 76 | [`📄 LC 76: Minimum Window Substring`](./02-sliding-window/problems/76-minimum-window-substring.md) | [`💻 76-minimum-window-substring.py`](./02-sliding-window/problems/76-minimum-window-substring.py) | Variable Shortest Match | Track have == need distinct char counts; contract L while window satisfies | $O(n)$ | $O(m)$ |
+| 643 | [`📄 LC 643: Maximum Average Subarray I`](./02-sliding-window/problems/643-maximum-average-subarray-i.md) | [`💻 643-maximum-average-subarray-i.py`](./02-sliding-window/problems/643-maximum-average-subarray-i.py) | Fixed Window (k) | Keep running sum for $k$ elements; return `max_sum / k` | $O(n)$ | $O(1)$ |
+| 713 | [`📄 LC 713: Subarray Product Less Than K`](./02-sliding-window/problems/713-subarray-product-less-than-k.md) | [`💻 713-subarray-product-less-than-k.py`](./02-sliding-window/problems/713-subarray-product-less-than-k.py) | Variable Subarray Count | For each $R$, divide by `nums[L]` while product $\ge k$; add `R - L + 1` | $O(n)$ | $O(1)$ |
+| 76 | [`📄 LC 76: Minimum Window Substring`](./02-sliding-window/problems/76-minimum-window-substring.md) | [`💻 76-minimum-window-substring.py`](./02-sliding-window/problems/76-minimum-window-substring.py) | Variable Shortest Match | Track `have == need` distinct char counts; contract $L$ while window satisfies | $O(n)$ | $O(m)$ |
 | 904 | [`📄 LC 904: Fruit Into Baskets`](./02-sliding-window/problems/904-fruit-into-baskets.md) | [`💻 904-fruit-into-baskets.py`](./02-sliding-window/problems/904-fruit-into-baskets.py) | Variable (Max 2 Types) | Longest subarray with at most 2 distinct keys in frequency map | $O(n)$ | $O(1)$ |
 
 ---
@@ -377,10 +379,11 @@ def min_window(s: str, t: str) -> str:
 > **Pattern Folder:** [📂 `03-binary-search`](./03-binary-search/README.md) | **Implemented Solutions:** 5 Problems
 
 ### 💡 Mental Model & Intuition
+
 Imagine guessing a number between 1 and 100 with 'Higher' or 'Lower' clues. Guessing 50 eliminates half the universe instantly.
 Binary Search is **not just for sorted arrays**; it applies to **any search space that exhibits a monotonic Boolean property $P(x)$**:
-$$\\underbrace{[\\text{False, False, False}, \\dots, \\text{False}}_{\\text{Invalid Space}}, \\underbrace{\\text{True, True, True}, \\dots, \\text{True}]}_{\\text{Valid Space}}$$
-Binary search finds the exact **boundary / transition point** in $O(\\log n)$ comparisons.
+$$\underbrace{[\text{False, False, False}, \dots, \text{False}]}_{\text{Invalid Space}}, \underbrace{[\text{True, True, True}, \dots, \text{True}]}_{\text{Valid Space}}$$
+Binary search finds the exact **boundary / transition point** in $O(\log n)$ comparisons.
 
 ```text
 Monotonic Boolean Predicate:
@@ -394,7 +397,7 @@ Value: [ 2,     4,     6,     8,    10,    12 ]
 ### 🚨 When to Use
 - Array is sorted or rotated sorted.
 - Problem asks for minimum/maximum speed, capacity, days ('Search on Answer Space').
-- Expected complexity is $O(\\log n)$.
+- Expected complexity is $O(\log n)$.
 
 ---
 
@@ -455,10 +458,10 @@ def search_answer_space(low: int, high: int) -> int:
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
 | 1351 | [`📄 LC 1351: Count Negative Numbers in a Sorted Matrix`](./03-binary-search/problems/1351-count-negative-numbers-in-a-sorted-matrix.md) | [`💻 1351-count-negative-numbers-in-a-sorted-matrix.py`](./03-binary-search/problems/1351-count-negative-numbers-in-a-sorted-matrix.py) | Staircase / Binary Search | Start from bottom-left or top-right; if negative, all elements below/right are negative | $O(m + n)$ | $O(1)$ |
-| 35 | [`📄 LC 35: Search Insert Position`](./03-binary-search/problems/35-search-insert-position.md) | [`💻 35-search-insert-position.py`](./03-binary-search/problems/35-search-insert-position.py) | Boundary Search | Standard binary search; on loop exit (L > R), L is the exact insertion point | $O(log n)$ | $O(1)$ |
-| 374 | [`📄 LC 374: Guess Number Higher or Lower`](./03-binary-search/problems/374-guess-number-higher-or-lower.md) | [`💻 374-guess-number-higher-or-lower.py`](./03-binary-search/problems/374-guess-number-higher-or-lower.py) | Interactive Binary Search | Use API response to eliminate half: 0 -> found, -1 -> R = mid - 1, 1 -> L = mid + 1 | $O(log n)$ | $O(1)$ |
-| 69 | [`📄 LC 69: Sqrt(x)`](./03-binary-search/problems/69-sqrtx.md) | [`💻 69-sqrtx.py`](./03-binary-search/problems/69-sqrtx.py) | Answer Space Search | Search range [0, x]; if mid^2 <= x, record res = mid and search higher | $O(log x)$ | $O(1)$ |
-| 704 | [`📄 LC 704: Binary Search`](./03-binary-search/problems/704-binary-search.md) | [`💻 704-binary-search.py`](./03-binary-search/problems/704-binary-search.py) | Exact Match BS | Textbook classic halving algorithm on sorted array with while L <= R | $O(log n)$ | $O(1)$ |
+| 35 | [`📄 LC 35: Search Insert Position`](./03-binary-search/problems/35-search-insert-position.md) | [`💻 35-search-insert-position.py`](./03-binary-search/problems/35-search-insert-position.py) | Boundary Search | Standard binary search; on loop exit ($L > R$), $L$ is the exact insertion point | $O(log n)$ | $O(1)$ |
+| 374 | [`📄 LC 374: Guess Number Higher or Lower`](./03-binary-search/problems/374-guess-number-higher-or-lower.md) | [`💻 374-guess-number-higher-or-lower.py`](./03-binary-search/problems/374-guess-number-higher-or-lower.py) | Interactive Binary Search | Use API response to eliminate half: 0 $\implies$ found, -1 $\implies R = \text{mid} - 1$, 1 $\implies L = \text{mid} + 1$ | $O(log n)$ | $O(1)$ |
+| 69 | [`📄 LC 69: Sqrt(x)`](./03-binary-search/problems/69-sqrtx.md) | [`💻 69-sqrtx.py`](./03-binary-search/problems/69-sqrtx.py) | Answer Space Search | Search range $[0, x]$; if $\text{mid}^2 \le x$, record `res = mid` and search higher | $O(log x)$ | $O(1)$ |
+| 704 | [`📄 LC 704: Binary Search`](./03-binary-search/problems/704-binary-search.md) | [`💻 704-binary-search.py`](./03-binary-search/problems/704-binary-search.py) | Exact Match BS | Textbook classic halving algorithm on sorted array with `while L <= R` | $O(log n)$ | $O(1)$ |
 
 ---
 
@@ -467,12 +470,13 @@ def search_answer_space(low: int, high: int) -> int:
 > **Pattern Folder:** [📂 `03-fast-slow-pointers`](./03-fast-slow-pointers/README.md) | **Implemented Solutions:** 4 Problems
 
 ### 💡 Mental Model & Intuition
+
 Imagine two runners on a circular track. Runner $F$ runs at speed 2, Runner $S$ runs at speed 1.
 1. **Cycle Detection**: On a straight line, $F$ reaches the end. On a loop, the relative distance between $F$ and $S$ increases by 1 on every tick. Thus, $F$ is guaranteed to lap and collide with $S$ without infinite loops.
 2. **Cycle Entrance Proof**:
    - Let distance to cycle start $= L$, distance from start to meeting point $= x$, cycle circumference $= C$.
    - Slow ran $L + x$; Fast ran $L + x + kC$.
-   - Since $2 \\cdot \\text{dist}(S) = \\text{dist}(F) \\implies 2(L + x) = L + x + kC \\implies L = kC - x$.
+   - Since $2 \cdot \text{dist}(S) = \text{dist}(F) \implies 2(L + x) = L + x + kC \implies L = kC - x$.
    - **Action**: Reset $S$ to head, keep $F$ at meeting point. Move both at speed 1. They meet exactly at the cycle entrance!
 
 ```text
@@ -484,7 +488,7 @@ Head ──(L steps)──> Entrance ──(x steps)──> Meeting Point
 ### 🚨 When to Use
 - Linked list cycle detection or cycle start node.
 - Finding the middle node of a linked list in a single pass.
-- Finding duplicate numbers in arrays where values map to indices ($1 \\le \\text{nums}[i] \\le n$).
+- Finding duplicate numbers in arrays where values map to indices ($1 \le \text{nums}[i] \le n$).
 
 ---
 
@@ -531,10 +535,10 @@ def find_middle(head):
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 141 | [`📄 LC 141: Linked List Cycle`](./03-fast-slow-pointers/problems/141-linked-list-cycle.md) | [`💻 141-linked-list-cycle.py`](./03-fast-slow-pointers/problems/141-linked-list-cycle.py) | Cycle Detection (Tortoise & Hare) | If fast == slow, a cycle exists. If fast or fast.next is None, no cycle | $O(n)$ | $O(1)$ |
-| 142 | [`📄 LC 142: Linked List Cycle II`](./03-fast-slow-pointers/problems/142-linked-list-cycle-ii.md) | [`💻 142-linked-list-cycle-ii.py`](./03-fast-slow-pointers/problems/142-linked-list-cycle-ii.py) | Cycle Entrance Math | Reset slow to head after collision; move both at speed 1 to intersect at entry | $O(n)$ | $O(1)$ |
-| 287 | [`📄 LC 287: Find the Duplicate Number`](./03-fast-slow-pointers/problems/287-find-the-duplicate-number.md) | [`💻 287-find-the-duplicate-number.py`](./03-fast-slow-pointers/problems/287-find-the-duplicate-number.py) | Implicit Array Cycle | Treat nums[i] as pointer next = nums[i]; duplicate value has multiple incoming edges | $O(n)$ | $O(1)$ |
-| 876 | [`📄 LC 876: Middle of the Linked List`](./03-fast-slow-pointers/problems/876-middle-of-the-linked-list.md) | [`💻 876-middle-of-the-linked-list.py`](./03-fast-slow-pointers/problems/876-middle-of-the-linked-list.py) | Midpoint Detection | When fast reaches tail, slow has traversed exactly half the distance | $O(n)$ | $O(1)$ |
+| 141 | [`📄 LC 141: Linked List Cycle`](./03-fast-slow-pointers/problems/141-linked-list-cycle.md) | [`💻 141-linked-list-cycle.py`](./03-fast-slow-pointers/problems/141-linked-list-cycle.py) | Cycle Detection (Tortoise & Hare) | If `fast == slow`, a cycle exists. If `fast` or `fast.next` is None, no cycle | $O(n)$ | $O(1)$ |
+| 142 | [`📄 LC 142: Linked List Cycle II`](./03-fast-slow-pointers/problems/142-linked-list-cycle-ii.md) | [`💻 142-linked-list-cycle-ii.py`](./03-fast-slow-pointers/problems/142-linked-list-cycle-ii.py) | Cycle Entrance Math | Reset `slow` to head after collision; move both at speed 1 to intersect at entry | $O(n)$ | $O(1)$ |
+| 287 | [`📄 LC 287: Find the Duplicate Number`](./03-fast-slow-pointers/problems/287-find-the-duplicate-number.md) | [`💻 287-find-the-duplicate-number.py`](./03-fast-slow-pointers/problems/287-find-the-duplicate-number.py) | Implicit Array Cycle | Treat `nums[i]` as pointer `next = nums[i]`; duplicate value has multiple incoming edges | $O(n)$ | $O(1)$ |
+| 876 | [`📄 LC 876: Middle of the Linked List`](./03-fast-slow-pointers/problems/876-middle-of-the-linked-list.md) | [`💻 876-middle-of-the-linked-list.py`](./03-fast-slow-pointers/problems/876-middle-of-the-linked-list.py) | Midpoint Detection | When `fast` reaches tail, `slow` has traversed exactly half the distance | $O(n)$ | $O(1)$ |
 
 ---
 
@@ -543,8 +547,11 @@ def find_middle(head):
 > **Pattern Folder:** [📂 `04-prefix-sum`](./04-prefix-sum/README.md) | **Implemented Solutions:** 1 Problems
 
 ### 💡 Mental Model & Intuition
-Think of an automobile odometer. To calculate distance between Mile Marker 30 and Mile Marker 80, you don't re-measure the road; you compute $\\text{Odometer}(80) - \\text{Odometer}(29)$.
-$$\\text{Sum}(L \\dots R) = \\text{Prefix}[R] - \\text{Prefix}[L-1]$$
+
+Think of an automobile odometer. To calculate distance between Mile Marker 30 and Mile Marker 80, you don't re-measure the road; you compute `Odometer(80) - Odometer(29)`.
+
+$$\text{Sum}(L \dots R) = \text{Prefix}[R] - \text{Prefix}[L-1]$$
+
 For multiplication without division (LC 238), precompute running products from left, then sweep from right accumulating suffix products.
 
 ```text
@@ -555,7 +562,7 @@ Sum(1..3) = Prefix[3] - Prefix[0] = 10 - 3 = 7 (1 + 4 + 2)
 
 ### 🚨 When to Use
 - Frequent static range sum queries ($O(1)$ query time).
-- Subarrays with exact target sums (paired with HashMap: $\\text{curr_sum} - \\text{target} = \\text{earlier_prefix}$).
+- Subarrays with exact target sums (paired with HashMap: `curr_sum - target == earlier_prefix`).
 - Product calculations where division is disallowed.
 
 ---
@@ -590,7 +597,7 @@ def product_except_self(nums: list[int]) -> list[int]:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 238 | [`📄 LC 238: Product of Array Except Self`](./04-prefix-sum/problems/238-product-of-array-except-self.md) | [`💻 238-product-of-array-except-self.py`](./04-prefix-sum/problems/238-product-of-array-except-self.py) | Prefix & Suffix Product Accumulation | res[i] = prefix_product[i-1] * suffix_product[i+1]; compute in two sweeps without division | $O(n)$ | $O(1)$ |
+| 238 | [`📄 LC 238: Product of Array Except Self`](./04-prefix-sum/problems/238-product-of-array-except-self.md) | [`💻 238-product-of-array-except-self.py`](./04-prefix-sum/problems/238-product-of-array-except-self.py) | Prefix & Suffix Product Accumulation | `res[i] = prefix_product[i-1] * suffix_product[i+1]`; compute in two sweeps without division | $O(n)$ | $O(1)$ |
 
 ---
 
@@ -599,8 +606,9 @@ def product_except_self(nums: list[int]) -> list[int]:
 > **Pattern Folder:** [📂 `05-hashmap-frequency-map`](./05-hashmap-frequency-map/README.md) | **Implemented Solutions:** 8 Problems
 
 ### 💡 Mental Model & Intuition
+
 Trading $O(n)$ memory to collapse an inner $O(n)$ lookup loop into $O(1)$.
-- **Complement Lookup**: *\"I am at $x$. I need $y = \\text{target} - x$. Have I seen $y$ earlier in my memory?\"*
+- **Complement Lookup**: *"I am at $x$. I need $y = \text{target} - x$. Have I seen $y$ earlier in my memory?"*
 - **Frequency Map & Bucket Sort**: Counting items with a hash map, then grouping elements into buckets by frequency (`bucket[count] = [elements]`) allows finding Top-K elements in $O(n)$ time without a heap.
 - **Canonical Key Hashing**: All anagrams have the exact same sorted tuple or 26-element character count tuple.
 
@@ -691,14 +699,14 @@ def longest_consecutive(nums: list[int]) -> int:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 1 | [`📄 LC 1: Two Sum`](./05-hashmap-frequency-map/problems/1-two-sum.md) | [`💻 1-two-sum.py`](./05-hashmap-frequency-map/problems/1-two-sum.py) | Complement Hash Lookup | Store value -> index; check if target - num already in map | $O(n)$ | $O(n)$ |
-| 128 | [`📄 LC 128: Longest Consecutive Sequence`](./05-hashmap-frequency-map/problems/128-longest-consecutive-sequence.md) | [`💻 128-longest-consecutive-sequence.py`](./05-hashmap-frequency-map/problems/128-longest-consecutive-sequence.py) | HashSet Streak Start | Only explore streaks starting from numbers where x - 1 is absent | $O(n)$ | $O(n)$ |
-| 136 | [`📄 LC 136: Single Number`](./05-hashmap-frequency-map/problems/136-single-number.md) | [`💻 136-single-number.py`](./05-hashmap-frequency-map/problems/136-single-number.py) | Bitwise XOR / Hash | x ^ x = 0 and x ^ 0 = x; XOR-ing all elements leaves single unique | $O(n)$ | $O(1)$ |
+| 1 | [`📄 LC 1: Two Sum`](./05-hashmap-frequency-map/problems/1-two-sum.md) | [`💻 1-two-sum.py`](./05-hashmap-frequency-map/problems/1-two-sum.py) | Complement Hash Lookup | Store `value -> index`; check if `target - num` already in map | $O(n)$ | $O(n)$ |
+| 128 | [`📄 LC 128: Longest Consecutive Sequence`](./05-hashmap-frequency-map/problems/128-longest-consecutive-sequence.md) | [`💻 128-longest-consecutive-sequence.py`](./05-hashmap-frequency-map/problems/128-longest-consecutive-sequence.py) | HashSet Streak Start | Only explore streaks starting from numbers where `x - 1` is absent | $O(n)$ | $O(n)$ |
+| 136 | [`📄 LC 136: Single Number`](./05-hashmap-frequency-map/problems/136-single-number.md) | [`💻 136-single-number.py`](./05-hashmap-frequency-map/problems/136-single-number.py) | Bitwise XOR / Hash | $x \oplus x = 0$ and $x \oplus 0 = x$; XOR-ing all elements leaves single unique | $O(n)$ | $O(1)$ |
 | 217 | [`📄 LC 217: Contains Duplicate`](./05-hashmap-frequency-map/problems/217-contains-duplicate.md) | [`💻 217-contains-duplicate.py`](./05-hashmap-frequency-map/problems/217-contains-duplicate.py) | HashSet Existence Check | Insert into set; return True immediately on duplicate hit | $O(n)$ | $O(n)$ |
-| 242 | [`📄 LC 242: Valid Anagram`](./05-hashmap-frequency-map/problems/242-valid-anagram.md) | [`💻 242-valid-anagram.py`](./05-hashmap-frequency-map/problems/242-valid-anagram.py) | Frequency Map / Array | Counter(s) == Counter(t) or 26-element array match | $O(n)$ | $O(1)$ |
-| 347 | [`📄 LC 347: Top K Frequent Elements`](./05-hashmap-frequency-map/problems/347-top-k-frequent-elements.md) | [`💻 347-top-k-frequent-elements.py`](./05-hashmap-frequency-map/problems/347-top-k-frequent-elements.py) | Bucket Sort / Frequency Map | Frequency map -> index buckets by frequency -> collect Top-K in O(n) | $O(n)$ | $O(n)$ |
-| 49 | [`📄 LC 49: Group Anagrams`](./05-hashmap-frequency-map/problems/49-group-anagrams.md) | [`💻 49-group-anagrams.py`](./05-hashmap-frequency-map/problems/49-group-anagrams.py) | Canonical Key Hash Map | Use tuple(sorted(word)) or character count tuple as dictionary key | $O(n * k log k)$ | $O(n * k)$ |
-| 560 | [`📄 LC 560: Subarray Sum Equals K`](./05-hashmap-frequency-map/problems/560-subarray-sum-equals-k.md) | [`💻 560-subarray-sum-equals-k.py`](./05-hashmap-frequency-map/problems/560-subarray-sum-equals-k.py) | Prefix Sum + HashMap | Count previous occurrences of prefix_sum - k in map initialized with {0: 1} | $O(n)$ | $O(n)$ |
+| 242 | [`📄 LC 242: Valid Anagram`](./05-hashmap-frequency-map/problems/242-valid-anagram.md) | [`💻 242-valid-anagram.py`](./05-hashmap-frequency-map/problems/242-valid-anagram.py) | Frequency Map / Array | `Counter(s) == Counter(t)` or 26-element array match | $O(n)$ | $O(1)$ |
+| 347 | [`📄 LC 347: Top K Frequent Elements`](./05-hashmap-frequency-map/problems/347-top-k-frequent-elements.md) | [`💻 347-top-k-frequent-elements.py`](./05-hashmap-frequency-map/problems/347-top-k-frequent-elements.py) | Bucket Sort / Frequency Map | Frequency map $\to$ index buckets by frequency $\to$ collect Top-K in $O(n)$ | $O(n)$ | $O(n)$ |
+| 49 | [`📄 LC 49: Group Anagrams`](./05-hashmap-frequency-map/problems/49-group-anagrams.md) | [`💻 49-group-anagrams.py`](./05-hashmap-frequency-map/problems/49-group-anagrams.py) | Canonical Key Hash Map | Use `tuple(sorted(word))` or character count tuple as dictionary key | $O(n \cdot k \log k)$ | $O(n \cdot k)$ |
+| 560 | [`📄 LC 560: Subarray Sum Equals K`](./05-hashmap-frequency-map/problems/560-subarray-sum-equals-k.md) | [`💻 560-subarray-sum-equals-k.py`](./05-hashmap-frequency-map/problems/560-subarray-sum-equals-k.py) | Prefix Sum + HashMap | Count previous occurrences of `prefix_sum - k` in map initialized with `{0: 1}` | $O(n)$ | $O(n)$ |
 
 ---
 
@@ -707,6 +715,7 @@ def longest_consecutive(nums: list[int]) -> int:
 > **Pattern Folder:** [📂 `06-monotonic-stack`](./06-monotonic-stack/README.md) | **Implemented Solutions:** 6 Problems
 
 ### 💡 Mental Model & Intuition
+
 A waiting room of **unresolved elements**.
 - **Monotonic Decreasing Stack**: Looking for the **Next Greater Element**. Elements sit in the stack in descending order. When a larger number arrives, it **resolves and evicts** everyone shorter than it.
 - **Monotonic Increasing Stack**: Looking for the **Next Smaller Element** (used to bound rectangle widths in histograms).
@@ -815,11 +824,11 @@ def max_sliding_window(nums: list[int], k: int) -> list[int]:
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
 | 239 | [`📄 LC 239: Sliding Window Maximum`](./06-monotonic-stack/problems/239-sliding-window-maximum.md) | [`💻 239-sliding-window-maximum.py`](./06-monotonic-stack/problems/239-sliding-window-maximum.py) | Monotonic Decreasing Deque | Deque front always holds max element index; evict old indices from front | $O(n)$ | $O(k)$ |
-| 496 | [`📄 LC 496: Next Greater Element I`](./06-monotonic-stack/problems/496-next-greater-element-i.md) | [`💻 496-next-greater-element-i.py`](./06-monotonic-stack/problems/496-next-greater-element-i.py) | Monotonic Decreasing Stack | Maintain decreasing stack; store mapping val -> next_greater on pop | $O(n + m)$ | $O(n)$ |
-| 503 | [`📄 LC 503: Next Greater Element II`](./06-monotonic-stack/problems/503-next-greater-element-ii.md) | [`💻 503-next-greater-element-ii.py`](./06-monotonic-stack/problems/503-next-greater-element-ii.py) | Circular Monotonic Stack | Loop twice (2n) with index modulo n to simulate circular array | $O(n)$ | $O(n)$ |
-| 739 | [`📄 LC 739: Daily Temperatures`](./06-monotonic-stack/problems/739-daily-temperatures.md) | [`💻 739-daily-temperatures.py`](./06-monotonic-stack/problems/739-daily-temperatures.py) | Monotonic Decreasing Index Stack | Store day indices; when warmer day arrives, pop and record curr_i - popped_i | $O(n)$ | $O(n)$ |
-| 84 | [`📄 LC 84: Largest Rectangle in Histogram`](./06-monotonic-stack/problems/84-largest-rectangle-in-histogram.md) | [`💻 84-largest-rectangle-in-histogram.py`](./06-monotonic-stack/problems/84-largest-rectangle-in-histogram.py) | Monotonic Increasing Stack | Popping a taller bar means its right boundary is i and left is stack top; calculate area | $O(n)$ | $O(n)$ |
-| 901 | [`📄 LC 901: Online Stock Span`](./06-monotonic-stack/problems/901-online-stock-span.md) | [`💻 901-online-stock-span.py`](./06-monotonic-stack/problems/901-online-stock-span.py) | Monotonic Stack Pair | Stack stores (price, span); accumulate spans of popped smaller prices | $O(1) amortized$ | $O(n)$ |
+| 496 | [`📄 LC 496: Next Greater Element I`](./06-monotonic-stack/problems/496-next-greater-element-i.md) | [`💻 496-next-greater-element-i.py`](./06-monotonic-stack/problems/496-next-greater-element-i.py) | Monotonic Decreasing Stack | Maintain decreasing stack; store mapping `val -> next_greater` on pop | $O(n + m)$ | $O(n)$ |
+| 503 | [`📄 LC 503: Next Greater Element II`](./06-monotonic-stack/problems/503-next-greater-element-ii.md) | [`💻 503-next-greater-element-ii.py`](./06-monotonic-stack/problems/503-next-greater-element-ii.py) | Circular Monotonic Stack | Loop twice ($2n$) with index modulo $n$ to simulate circular array | $O(n)$ | $O(n)$ |
+| 739 | [`📄 LC 739: Daily Temperatures`](./06-monotonic-stack/problems/739-daily-temperatures.md) | [`💻 739-daily-temperatures.py`](./06-monotonic-stack/problems/739-daily-temperatures.py) | Monotonic Decreasing Index Stack | Store day indices; when warmer day arrives, pop and record `curr_i - popped_i` | $O(n)$ | $O(n)$ |
+| 84 | [`📄 LC 84: Largest Rectangle in Histogram`](./06-monotonic-stack/problems/84-largest-rectangle-in-histogram.md) | [`💻 84-largest-rectangle-in-histogram.py`](./06-monotonic-stack/problems/84-largest-rectangle-in-histogram.py) | Monotonic Increasing Stack | Popping a taller bar means its right boundary is `i` and left is stack top; calculate area | $O(n)$ | $O(n)$ |
+| 901 | [`📄 LC 901: Online Stock Span`](./06-monotonic-stack/problems/901-online-stock-span.md) | [`💻 901-online-stock-span.py`](./06-monotonic-stack/problems/901-online-stock-span.py) | Monotonic Stack Pair | Stack stores `(price, span)`; accumulate spans of popped smaller prices | $O(1) amortized$ | $O(n)$ |
 
 ---
 
@@ -828,6 +837,7 @@ def max_sliding_window(nums: list[int], k: int) -> list[int]:
 > **Pattern Folder:** [📂 `07-bfs-level-order`](./07-bfs-level-order/README.md) | **Implemented Solutions:** 9 Problems
 
 ### 💡 Mental Model & Intuition
+
 Ripples expanding outwards from a stone dropped in water.
 - **Shortest Path Guarantee**: Because a FIFO queue visits all nodes at distance $d$ before any node at distance $d+1$, the first time BFS reaches a target, that path is guaranteed to be the shortest.
 - **The 'Known Answers at $t=0$' Rule (Multi-Source BFS)**:
@@ -838,9 +848,9 @@ Ripples expanding outwards from a stone dropped in water.
 ```text
 Tree Level Order:
 Level 0:        [ 1 ]
-               /     \\
+               /     \
 Level 1:    [ 2 ]   [ 3 ]
-            /   \\       \\
+            /   \       \
 Level 2:  [ 4 ] [ 5 ]   [ 6 ]
 ```
 
@@ -910,15 +920,15 @@ def multi_source_grid_bfs(grid: list[list[int]]) -> int:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 102 | [`📄 LC 102: Binary Tree Level Order Traversal`](./07-bfs-level-order/problems/102-binary-tree-level-order-traversal.md) | [`💻 102-binary-tree-level-order-traversal.py`](./07-bfs-level-order/problems/102-binary-tree-level-order-traversal.py) | Level Snapshot BFS | Snapshot len(q) to process nodes in exact discrete tiers | $O(n)$ | $O(n)$ |
-| 103 | [`📄 LC 103: Binary Tree Zigzag Level Order Traversal`](./07-bfs-level-order/problems/103-binary-tree-zigzag-level-order-traversal.md) | [`💻 103-binary-tree-zigzag-level-order-traversal.py`](./07-bfs-level-order/problems/103-binary-tree-zigzag-level-order-traversal.py) | Alternating Level Snapshot BFS | Maintain boolean flag left_to_right; reverse level list when False | $O(n)$ | $O(n)$ |
-| 127 | [`📄 LC 127: Word Ladder`](./07-bfs-level-order/problems/127-word-ladder.md) | [`💻 127-word-ladder.py`](./07-bfs-level-order/problems/127-word-ladder.py) | Generic State BFS | Build wildcard intermediate map h*t -> [hot, hit]; BFS gives shortest mutation | $O(M^2 * N)$ | $O(M^2 * N)$ |
-| 1765 | [`📄 LC 1765: Map of Highest Peak`](./07-bfs-level-order/problems/1765-map-of-highest-peak.md) | [`💻 1765-map-of-highest-peak.py`](./07-bfs-level-order/problems/1765-map-of-highest-peak.py) | Multi-Source BFS | Seed all water cells at height 0; each adjacent land cell is curr_height + 1 | $O(m * n)$ | $O(m * n)$ |
-| 199 | [`📄 LC 199: Binary Tree Right Side View`](./07-bfs-level-order/problems/199-binary-tree-right-side-view.md) | [`💻 199-binary-tree-right-side-view.py`](./07-bfs-level-order/problems/199-binary-tree-right-side-view.py) | Level-Order Last Node BFS | In each level snapshot, record the last element curr_level[-1] | $O(n)$ | $O(n)$ |
-| 433 | [`📄 LC 433: Minimum Genetic Mutation`](./07-bfs-level-order/problems/433-minimum-genetic-mutation.md) | [`💻 433-minimum-genetic-mutation.py`](./07-bfs-level-order/problems/433-minimum-genetic-mutation.py) | Shortest Mutation Path BFS | Mutate each gene char with [A, C, G, T]; BFS finds min steps | $O(N * L * 4)$ | $O(N)$ |
-| 542 | [`📄 LC 542: 01 Matrix`](./07-bfs-level-order/problems/542-01-matrix.md) | [`💻 542-01-matrix.py`](./07-bfs-level-order/problems/542-01-matrix.py) | Multi-Source BFS | Start from all 0s simultaneously to compute distance to nearest 0 in one pass | $O(m * n)$ | $O(m * n)$ |
-| 637 | [`📄 LC 637: Average of Levels in Binary Tree`](./07-bfs-level-order/problems/637-average-of-levels-in-binary-tree.md) | [`💻 637-average-of-levels-in-binary-tree.py`](./07-bfs-level-order/problems/637-average-of-levels-in-binary-tree.py) | Level-Order Aggregation BFS | Sum level elements and divide by level_size | $O(n)$ | $O(n)$ |
-| 994 | [`📄 LC 994: Rotting Oranges`](./07-bfs-level-order/problems/994-rotting-oranges.md) | [`💻 994-rotting-oranges.py`](./07-bfs-level-order/problems/994-rotting-oranges.py) | Multi-Source BFS | Seed all rotten oranges at t=0; track fresh orange count to verify total rot | $O(m * n)$ | $O(m * n)$ |
+| 102 | [`📄 LC 102: Binary Tree Level Order Traversal`](./07-bfs-level-order/problems/102-binary-tree-level-order-traversal.md) | [`💻 102-binary-tree-level-order-traversal.py`](./07-bfs-level-order/problems/102-binary-tree-level-order-traversal.py) | Level Snapshot BFS | Snapshot `len(q)` to process nodes in exact discrete tiers | $O(n)$ | $O(n)$ |
+| 103 | [`📄 LC 103: Binary Tree Zigzag Level Order Traversal`](./07-bfs-level-order/problems/103-binary-tree-zigzag-level-order-traversal.md) | [`💻 103-binary-tree-zigzag-level-order-traversal.py`](./07-bfs-level-order/problems/103-binary-tree-zigzag-level-order-traversal.py) | Alternating Level Snapshot BFS | Maintain boolean flag `left_to_right`; reverse level list when False | $O(n)$ | $O(n)$ |
+| 127 | [`📄 LC 127: Word Ladder`](./07-bfs-level-order/problems/127-word-ladder.md) | [`💻 127-word-ladder.py`](./07-bfs-level-order/problems/127-word-ladder.py) | Generic State BFS | Build wildcard intermediate map `h*t -> [hot, hit]`; BFS gives shortest mutation | $O(M^2 \cdot N)$ | $O(M^2 \cdot N)$ |
+| 1765 | [`📄 LC 1765: Map of Highest Peak`](./07-bfs-level-order/problems/1765-map-of-highest-peak.md) | [`💻 1765-map-of-highest-peak.py`](./07-bfs-level-order/problems/1765-map-of-highest-peak.py) | Multi-Source BFS | Seed all water cells at height 0; each adjacent land cell is `curr_height + 1` | $O(m \cdot n)$ | $O(m \cdot n)$ |
+| 199 | [`📄 LC 199: Binary Tree Right Side View`](./07-bfs-level-order/problems/199-binary-tree-right-side-view.md) | [`💻 199-binary-tree-right-side-view.py`](./07-bfs-level-order/problems/199-binary-tree-right-side-view.py) | Level-Order Last Node BFS | In each level snapshot, record the last element `curr_level[-1]` | $O(n)$ | $O(n)$ |
+| 433 | [`📄 LC 433: Minimum Genetic Mutation`](./07-bfs-level-order/problems/433-minimum-genetic-mutation.md) | [`💻 433-minimum-genetic-mutation.py`](./07-bfs-level-order/problems/433-minimum-genetic-mutation.py) | Shortest Mutation Path BFS | Mutate each gene char with `['A', 'C', 'G', 'T']`; BFS finds min steps | $O(N \cdot L \cdot 4)$ | $O(N)$ |
+| 542 | [`📄 LC 542: 01 Matrix`](./07-bfs-level-order/problems/542-01-matrix.md) | [`💻 542-01-matrix.py`](./07-bfs-level-order/problems/542-01-matrix.py) | Multi-Source BFS | Start from all 0s simultaneously to compute distance to nearest 0 in one pass | $O(m \cdot n)$ | $O(m \cdot n)$ |
+| 637 | [`📄 LC 637: Average of Levels in Binary Tree`](./07-bfs-level-order/problems/637-average-of-levels-in-binary-tree.md) | [`💻 637-average-of-levels-in-binary-tree.py`](./07-bfs-level-order/problems/637-average-of-levels-in-binary-tree.py) | Level-Order Aggregation BFS | Sum level elements and divide by `level_size` | $O(n)$ | $O(n)$ |
+| 994 | [`📄 LC 994: Rotting Oranges`](./07-bfs-level-order/problems/994-rotting-oranges.md) | [`💻 994-rotting-oranges.py`](./07-bfs-level-order/problems/994-rotting-oranges.py) | Multi-Source BFS | Seed all rotten oranges at $t=0$; track fresh orange count to verify total rot | $O(m \cdot n)$ | $O(m \cdot n)$ |
 
 ---
 
@@ -927,6 +937,7 @@ def multi_source_grid_bfs(grid: list[list[int]]) -> int:
 > **Pattern Folder:** [📂 `08-dfs-backtracking`](./08-dfs-backtracking/README.md) | **Implemented Solutions:** 4 Problems
 
 ### 💡 Mental Model & Intuition
+
 1. **Tree DFS (Postorder / Bottom-Up)**: Children solve their subtrees first and report answers upwards to parent nodes (computing subtree height, tree diameter, subtree balance).
 2. **Backtracking (Maze Exploration)**:
    - Make a choice (step forward).
@@ -937,9 +948,9 @@ def multi_source_grid_bfs(grid: list[list[int]]) -> int:
 ```text
 Decision Tree Backtracking (Subsets):
               []
-         /    |    \\
+         /    |    \
        [1]   [2]   [3]
-       / \\    |
+       / \    |
    [1,2][1,3][2,3]
      |
   [1,2,3]
@@ -993,10 +1004,10 @@ def backtrack_subsets(nums: list[int]) -> list[list[int]]:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 104 | [`📄 LC 104: Maximum Depth of Binary Tree`](./08-dfs-backtracking/problems/104-maximum-depth-of-binary-tree.md) | [`💻 104-maximum-depth-of-binary-tree.py`](./08-dfs-backtracking/problems/104-maximum-depth-of-binary-tree.py) | Bottom-Up Postorder DFS | height = 1 + max(dfs(left), dfs(right)) | $O(n)$ | $O(h)$ |
-| 110 | [`📄 LC 110: Balanced Binary Tree`](./08-dfs-backtracking/problems/110-balanced-binary-tree.md) | [`💻 110-balanced-binary-tree.py`](./08-dfs-backtracking/problems/110-balanced-binary-tree.py) | Bottom-Up Early Exit DFS | Return -1 immediately if any child is unbalanced or |h_L - h_R| > 1 | $O(n)$ | $O(h)$ |
-| 112 | [`📄 LC 112: Path Sum`](./08-dfs-backtracking/problems/112-path-sum.md) | [`💻 112-path-sum.py`](./08-dfs-backtracking/problems/112-path-sum.py) | Top-Down Preorder DFS | Subtract node.val at each step; check if leaf node matches target_sum == 0 | $O(n)$ | $O(h)$ |
-| 543 | [`📄 LC 543: Diameter of Binary Tree`](./08-dfs-backtracking/problems/543-diameter-of-binary-tree.md) | [`💻 543-diameter-of-binary-tree.py`](./08-dfs-backtracking/problems/543-diameter-of-binary-tree.py) | Bottom-Up Longest Path DFS | Longest path through node is left_h + right_h; update global max | $O(n)$ | $O(h)$ |
+| 104 | [`📄 LC 104: Maximum Depth of Binary Tree`](./08-dfs-backtracking/problems/104-maximum-depth-of-binary-tree.md) | [`💻 104-maximum-depth-of-binary-tree.py`](./08-dfs-backtracking/problems/104-maximum-depth-of-binary-tree.py) | Bottom-Up Postorder DFS | `height = 1 + max(dfs(left), dfs(right))` | $O(n)$ | $O(h)$ |
+| 110 | [`📄 LC 110: Balanced Binary Tree`](./08-dfs-backtracking/problems/110-balanced-binary-tree.md) | [`💻 110-balanced-binary-tree.py`](./08-dfs-backtracking/problems/110-balanced-binary-tree.py) | Bottom-Up Early Exit DFS | Return -1 immediately if any child is unbalanced or $|h_L - h_R| > 1$ | $O(n)$ | $O(h)$ |
+| 112 | [`📄 LC 112: Path Sum`](./08-dfs-backtracking/problems/112-path-sum.md) | [`💻 112-path-sum.py`](./08-dfs-backtracking/problems/112-path-sum.py) | Top-Down Preorder DFS | Subtract `node.val` at each step; check if leaf node matches `target_sum == 0` | $O(n)$ | $O(h)$ |
+| 543 | [`📄 LC 543: Diameter of Binary Tree`](./08-dfs-backtracking/problems/543-diameter-of-binary-tree.md) | [`💻 543-diameter-of-binary-tree.py`](./08-dfs-backtracking/problems/543-diameter-of-binary-tree.py) | Bottom-Up Longest Path DFS | Longest path through `node` is `left_h + right_h`; update global max | $O(n)$ | $O(h)$ |
 
 ---
 
@@ -1005,11 +1016,13 @@ def backtrack_subsets(nums: list[int]) -> list[list[int]]:
 > **Pattern Folder:** [📂 `09-dynamic-programming`](./09-dynamic-programming/README.md) | **Implemented Solutions:** 1 Problems
 
 ### 💡 Mental Model & Intuition
+
 DP is solving a big problem by breaking it into overlapping subproblems with optimal substructure — and remembering the answers so no calculation is ever repeated.
 - **Kadane's Algorithm (1D Local vs Global State)**: At each number $x$, you face a choice:
   1. *Extend* the existing subarray: `curr_sum + x`
   2. *Start fresh* from $x$: `x`
-  $$\\text{curr_max} = \\max(x, \\text{curr_max} + x)$$
+
+  `curr_max = max(x, curr_max + x)`
 
 ```text
 Kadane's Decision at index i:
@@ -1060,7 +1073,7 @@ def dp_1d(nums: list[int]) -> int:
 
 | # | Problem Statement (.md) | Solution Code (.py) | Sub-Pattern / Approach | Key "Aha!" Invariant | Time | Space |
 | :-: | :--- | :--- | :--- | :--- | :-: | :-: |
-| 53 | [`📄 LC 53: Maximum Subarray`](./09-dynamic-programming/problems/53-maximum-subarray.md) | [`💻 53-maximum-subarray.py`](./09-dynamic-programming/problems/53-maximum-subarray.py) | Kadane 1D Local/Global DP | If running sum becomes negative, it hurts future subarrays — drop it and start fresh at x | $O(n)$ | $O(1)$ |
+| 53 | [`📄 LC 53: Maximum Subarray`](./09-dynamic-programming/problems/53-maximum-subarray.md) | [`💻 53-maximum-subarray.py`](./09-dynamic-programming/problems/53-maximum-subarray.py) | Kadane 1D Local/Global DP | If running sum becomes negative, it hurts future subarrays — drop it and start fresh at $x$ | $O(n)$ | $O(1)$ |
 
 ---
 
